@@ -1,98 +1,202 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import gsap from 'gsap';
+import SplitType from 'split-type';
 
 const Hero = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const heroRef = useRef(null);
+  const headlineRef = useRef(null);
+  const sublineRef = useRef(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
+  useEffect(() => {
+    // Character-by-character text reveal
+    if (headlineRef.current && sublineRef.current) {
+      const headlineSplit = new SplitType(headlineRef.current, { types: 'chars' });
+      const sublineSplit = new SplitType(sublineRef.current, { types: 'chars,words' });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
+      gsap.from(headlineSplit.chars, {
+        opacity: 0,
+        y: 50,
+        rotateX: -90,
+        stagger: 0.02,
+        duration: 1,
+        ease: 'expo.out',
+        delay: 0.3
+      });
+
+      gsap.from(sublineSplit.words, {
+        opacity: 0,
+        y: 30,
+        stagger: 0.03,
+        duration: 0.8,
+        ease: 'expo.out',
+        delay: 1.2
+      });
+    }
+
+    // Mesh gradient animation
+    gsap.to('.mesh-gradient-bg', {
+      backgroundPosition: '100% 50%',
+      duration: 20,
+      ease: 'none',
+      repeat: -1,
+      yoyo: true
+    });
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain-texture">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-subtle-gradient" />
+    <section
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden grain-texture"
+    >
+      {/* Animated Mesh Gradient Background */}
+      <div
+        className="mesh-gradient-bg absolute inset-0"
+        style={{
+          background: 'radial-gradient(at 27% 37%, rgba(212, 175, 55, 0.3) 0px, transparent 50%), radial-gradient(at 97% 21%, rgba(164, 119, 100, 0.15) 0px, transparent 50%), radial-gradient(at 52% 99%, rgba(0, 0, 0, 1) 0px, transparent 50%), radial-gradient(at 10% 29%, rgba(212, 175, 55, 0.2) 0px, transparent 50%)',
+          backgroundSize: '400% 400%'
+        }}
+      />
 
-      {/* Geometric Shapes - Luxury Accent */}
-      <div className="absolute top-1/4 -right-48 w-96 h-96 bg-luxury-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -left-48 w-96 h-96 bg-luxury-gold/5 rounded-full blur-3xl" />
+      {/* Floating Gold Orbs */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%)',
+          filter: 'blur(60px)'
+        }}
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 20, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
 
       <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        className="container mx-auto px-6 lg:px-12 py-32 relative z-10"
-      >
-        <div className="max-w-5xl mx-auto text-center">
+        className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(164, 119, 100, 0.2) 0%, transparent 70%)',
+          filter: 'blur(60px)'
+        }}
+        animate={{
+          y: [0, 30, 0],
+          x: [0, -20, 0],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+
+      {/* Content */}
+      <div className="container mx-auto px-6 lg:px-20 relative z-10">
+        <div className="max-w-7xl mx-auto text-center">
           {/* Main Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-6xl lg:text-hero font-bold mb-8 leading-tight"
+          <h1
+            ref={headlineRef}
+            className="text-6xl md:text-7xl lg:text-[7rem] xl:text-[8rem] font-serif font-bold mb-8 leading-[0.95]"
           >
-            We Don't Just Run Ads.
+            <span className="text-white">We Don't Just Run Ads.</span>
             <br />
-            <span className="text-gradient luxury-glow">
+            <span className="text-gradient-flow luxury-glow-strong">
               We Build Growth Machines.
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subheadline */}
           <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-luxury-gray mb-12 max-w-3xl mx-auto leading-relaxed"
+            ref={sublineRef}
+            className="text-xl md:text-2xl lg:text-3xl text-chrome-silver/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
           >
             Strategic marketing partners for ambitious businesses. We do whatever it takes to drive real,
             measurable growth—not just check boxes on a service list.
           </motion.p>
 
-          {/* CTA Button */}
-          <motion.div variants={itemVariants}>
-            <motion.a
+          {/* CTA Button with Magnetic Effect */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.5, duration: 0.6, ease: 'backOut' }}
+          >
+            <a
               href="#contact"
-              className="inline-block px-12 py-5 bg-gold-gradient rounded-full font-bold text-lg text-luxury-black transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)]"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              className="magnetic group inline-block relative px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold overflow-hidden transition-all duration-500"
+              style={{
+                boxShadow: '0 0 40px rgba(212, 175, 55, 0.5)'
+              }}
             >
-              Let's Talk Growth
-            </motion.a>
+              {/* Animated background */}
+              <motion.div
+                className="absolute inset-0 bg-liquid-gold-light"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+
+              <span className="relative z-10 flex items-center gap-3">
+                Let's Talk Growth
+                <svg
+                  className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </a>
           </motion.div>
 
           {/* Scroll Indicator */}
           <motion.div
-            variants={itemVariants}
-            className="mt-24 flex flex-col items-center gap-3"
+            className="mt-32 flex flex-col items-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 1 }}
           >
-            <span className="text-sm text-luxury-gray uppercase tracking-widest">Scroll to explore</span>
+            <span className="text-sm text-chrome-silver/60 uppercase tracking-[0.3em] font-mono">
+              Scroll to explore
+            </span>
             <motion.div
+              className="w-7 h-12 border-2 border-liquid-gold rounded-full flex items-start justify-center p-2"
               animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-luxury-gold rounded-full flex items-start justify-center p-2"
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
             >
-              <div className="w-1.5 h-1.5 bg-luxury-gold rounded-full" />
+              <motion.div
+                className="w-2 h-2 bg-liquid-gold rounded-full"
+                animate={{ opacity: [1, 0.3, 1] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
             </motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Gradient Overlay at Bottom */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to top, #000000, transparent)'
+        }}
+      />
     </section>
   );
 };
