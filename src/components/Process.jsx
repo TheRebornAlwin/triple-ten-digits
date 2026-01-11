@@ -2,78 +2,72 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const Process = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const steps = [
     {
       number: '01',
       title: 'Discovery Call',
-      description: "We dig deep into your business, goals, and challenges. No sales pitch—just genuine conversation about whether we're the right fit.",
+      description: "We dig deep into your business, goals, and challenges. No sales pitch—just genuine conversation.",
     },
     {
       number: '02',
       title: 'Strategic Planning',
-      description: "We build a custom growth strategy tailored to your business. Not a template, not a package—a plan designed specifically for you.",
+      description: "Custom growth strategy tailored to your business. Not a template—a plan designed for you.",
     },
     {
       number: '03',
       title: 'Execution',
-      description: 'We handle everything. You focus on running your business while we obsess over driving results. Weekly updates, full transparency.',
+      description: 'We handle everything. You focus on your business while we obsess over driving results.',
     },
     {
       number: '04',
       title: 'Growth & Optimization',
-      description: "We continuously test, optimize, and scale what works. Your growth doesn't plateau—we push harder when things start working.",
+      description: "Continuously test, optimize, and scale what works. Your growth doesn't plateau.",
     },
   ];
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden grain-texture">
-      <div className="absolute inset-0 bg-luxury-black" />
+    <section ref={ref} className="relative py-50 overflow-hidden grain-texture">
+      <div className="absolute inset-0 bg-deep-charcoal" />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-display font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl lg:text-display font-serif font-bold mb-6">
             How We Work
           </h2>
-          <p className="text-xl text-luxury-gray max-w-3xl mx-auto">
-            Simple, transparent, and designed to get you results as fast as possible.
+          <p className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
+            Simple, transparent, designed to get you results fast.
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="space-y-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative flex gap-8 mb-12 last:mb-0"
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              className="relative flex gap-8 items-start"
             >
-              {/* Connecting Line */}
               {index < steps.length - 1 && (
-                <div className="absolute left-[2.75rem] top-24 w-0.5 h-full bg-luxury-gold/20" />
+                <div className="absolute left-14 top-28 w-0.5 h-full bg-liquid-gold/20" />
               )}
 
-              {/* Number Circle */}
-              <div className="flex-shrink-0 w-24 h-24 rounded-full bg-gold-gradient flex items-center justify-center relative z-10">
-                <span className="text-3xl font-bold text-luxury-black">{step.number}</span>
+              <div className="relative z-10 w-28 h-28 rounded-full bg-liquid-gold flex items-center justify-center flex-shrink-0">
+                <span className="text-4xl font-bold font-mono text-pure-black">{step.number}</span>
               </div>
 
-              {/* Content */}
-              <div className="flex-1 pt-4 pb-8">
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gradient">
+              <div className="flex-1 glass-card rounded-3xl p-8 lg:p-10 hover:scale-[1.02] transition-all duration-300">
+                <h3 className="text-3xl font-serif font-bold mb-4 text-gradient-flow">
                   {step.title}
                 </h3>
-                <p className="text-luxury-gray text-lg leading-relaxed">
+                <p className="text-chrome-silver/80 text-lg leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -84,14 +78,14 @@ const Process = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16 p-8 rounded-2xl bg-luxury-dark/50 border border-luxury-gold/20 max-w-3xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center mt-16 p-10 rounded-3xl glass-gold max-w-4xl mx-auto"
         >
-          <p className="text-xl font-semibold text-white mb-2">
+          <p className="text-2xl font-semibold text-white mb-2">
             You won't have to become a marketing expert.
           </p>
-          <p className="text-luxury-gray">
-            We handle everything so you can focus on what you do best—running your business.
+          <p className="text-lg text-chrome-silver/90">
+            We handle everything so you can focus on what you do best.
           </p>
         </motion.div>
       </div>
