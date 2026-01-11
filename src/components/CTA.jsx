@@ -50,17 +50,10 @@ const CTA = () => {
             href="https://calendly.com/your-link"
             target="_blank"
             rel="noopener noreferrer"
-            className="magnetic inline-block px-16 py-7 bg-liquid-gold rounded-full font-bold text-2xl text-pure-black transition-all duration-300 hover:shadow-glow-gold-lg mb-12 group relative overflow-hidden"
-            whileHover={{ scale: 1.05, y: -3 }}
+            className="inline-block px-16 py-7 bg-liquid-gold rounded-full font-bold text-2xl text-pure-black transition-all duration-300 hover:shadow-glow-gold-lg hover:scale-105 mb-12 group"
             whileTap={{ scale: 0.98 }}
           >
-            <motion.div
-              className="absolute inset-0 bg-liquid-gold-light"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <span className="relative z-10 flex items-center gap-3">
+            <span className="flex items-center gap-3">
               Book Your Strategy Call
               <svg className="w-7 h-7 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

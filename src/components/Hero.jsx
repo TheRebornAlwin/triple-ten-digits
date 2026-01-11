@@ -122,7 +122,7 @@ const Hero = () => {
             measurable growth—not just check boxes on a service list.
           </motion.p>
 
-          {/* CTA Button with Magnetic Effect */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -130,20 +130,9 @@ const Hero = () => {
           >
             <a
               href="#contact"
-              className="magnetic group inline-block relative px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold overflow-hidden transition-all duration-500"
-              style={{
-                boxShadow: '0 0 40px rgba(212, 175, 55, 0.5)'
-              }}
+              className="group inline-block px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
             >
-              {/* Animated background */}
-              <motion.div
-                className="absolute inset-0 bg-liquid-gold-light"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="flex items-center gap-3">
                 Let's Talk Growth
                 <svg
                   className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"

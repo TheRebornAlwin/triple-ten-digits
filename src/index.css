@@ -16,7 +16,6 @@
     font-feature-settings: 'kern' 1, 'liga' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    cursor: none; /* Custom cursor will replace */
   }
 
   /* Hide scrollbar but keep functionality */
@@ -186,10 +185,5 @@
   .luxury-button:hover {
     box-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
     transform: translateY(-2px);
-  }
-
-  /* Hide default cursor on interactive elements */
-  a, button, input, textarea, select {
-    cursor: none;
   }
 }
