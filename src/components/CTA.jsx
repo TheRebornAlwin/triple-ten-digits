@@ -46,20 +46,17 @@ const CTA = () => {
           </p>
 
           {/* CTA Button */}
-          <motion.a
+          <a
             href="https://calendly.com/your-link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-16 py-7 bg-liquid-gold rounded-full font-bold text-2xl text-pure-black transition-all duration-300 hover:shadow-glow-gold-lg hover:scale-105 mb-12 group"
-            whileTap={{ scale: 0.98 }}
+            className="inline-flex items-center justify-center gap-3 px-16 py-7 bg-liquid-gold rounded-full font-bold text-2xl text-pure-black transition-all duration-300 hover:shadow-glow-gold-lg hover:scale-105 mb-12"
           >
-            <span className="flex items-center gap-3">
-              Book Your Strategy Call
-              <svg className="w-7 h-7 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </motion.a>
+            Book Your Strategy Call
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
 
           {/* Trust Signals */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-chrome-silver/60 font-mono text-sm">

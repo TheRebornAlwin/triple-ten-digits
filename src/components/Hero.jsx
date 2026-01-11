@@ -130,19 +130,17 @@ const Hero = () => {
           >
             <a
               href="#contact"
-              className="group inline-block px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
             >
-              <span className="flex items-center gap-3">
-                Let's Talk Growth
-                <svg
-                  className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
+              Let's Talk Growth
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </a>
           </motion.div>
 
