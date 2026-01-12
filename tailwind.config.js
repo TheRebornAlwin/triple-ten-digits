@@ -25,17 +25,19 @@ export default {
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        'serif': ['Playfair Display', 'Georgia', 'serif'],
-        'mono': ['Space Grotesk', 'monospace'],
+        'serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+        'display': ['Cormorant Garamond', 'Georgia', 'serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       },
       fontSize: {
-        // Luxury Type Scale
-        'hero': ['6rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        'headline': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        'title': ['2rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
-        'body-lg': ['1.25rem', { lineHeight: '1.8' }],
-        'body': ['1rem', { lineHeight: '1.8' }],
+        // Premium Type Scale
+        'hero': ['7.5rem', { lineHeight: '0.95', letterSpacing: '-0.03em', fontWeight: '300' }],
+        'display': ['5.5rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '300' }],
+        'headline': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '400' }],
+        'title': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '400' }],
+        'body-xl': ['1.375rem', { lineHeight: '1.7' }],
+        'body-lg': ['1.25rem', { lineHeight: '1.7' }],
+        'body': ['1.125rem', { lineHeight: '1.7' }],
       },
       spacing: {
         '18': '4.5rem',

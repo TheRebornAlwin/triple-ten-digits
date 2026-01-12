@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import TrustBar from './components/TrustBar';
 import WhoThisIsFor from './components/WhoThisIsFor';
 import WhatWeDo from './components/WhatWeDo';
 import HowWereDifferent from './components/HowWereDifferent';
@@ -24,6 +25,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <TrustBar />
         <WhoThisIsFor />
         <WhatWeDo />
         <HowWereDifferent />

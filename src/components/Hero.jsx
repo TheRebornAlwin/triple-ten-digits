@@ -82,7 +82,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-10">
+        <div className="text-center space-y-14">
           {/* Premium badge with glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -104,17 +104,17 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative"
+            className="relative mb-8"
           >
-            <span className="block text-6xl md:text-7xl lg:text-8xl font-serif font-light text-white leading-[1] tracking-tight">
+            <span className="block text-7xl md:text-8xl lg:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
               We Don't Just
             </span>
-            <span className="block text-6xl md:text-7xl lg:text-8xl font-serif font-light leading-[1] tracking-tight mt-2">
+            <span className="block text-7xl md:text-8xl lg:text-[120px] font-display font-light leading-[0.95] tracking-tight mt-4">
               <span className="text-white">Run </span>
               <span className="relative inline-block">
                 <span className="text-liquid-gold">Ads.</span>
                 <motion.span
-                  className="absolute -bottom-2 left-0 right-0 h-[3px] bg-liquid-gold"
+                  className="absolute -bottom-3 left-0 right-0 h-[4px] bg-liquid-gold"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -129,18 +129,18 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="max-w-4xl mx-auto space-y-4"
+            className="max-w-4xl mx-auto space-y-6"
           >
-            <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed">
+            <p className="text-2xl md:text-3xl text-white/70 font-light leading-relaxed">
               Strategic marketing partners for ambitious businesses who are tired of
               <span className="relative inline-block mx-2">
                 <span className="text-white/30 line-through">pretty reports</span>
-                <span className="absolute -bottom-1 left-0 text-liquid-gold text-sm font-medium whitespace-nowrap">
+                <span className="absolute -bottom-1 left-0 text-liquid-gold text-lg font-medium whitespace-nowrap">
                   real results
                 </span>
               </span>
             </p>
-            <p className="text-base md:text-lg text-white/40 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/40 max-w-2xl mx-auto leading-relaxed">
               We do whatever it takes to drive measurable growth—not just check boxes on a service list.
             </p>
           </motion.div>
@@ -150,12 +150,12 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-4"
+            className="pt-6"
           >
             <a
               ref={ctaRef}
               href="#contact"
-              className="group relative inline-flex items-center gap-4 px-12 py-5 bg-white text-pure-black text-base font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] cursor-pointer"
+              className="group relative inline-flex items-center gap-4 px-12 py-6 bg-white text-pure-black text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] cursor-pointer"
             >
               <span>Book a Strategy Call</span>
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +164,7 @@ const Hero = () => {
               {/* Glow effect on hover */}
               <div className="absolute inset-0 rounded-full bg-liquid-gold/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </a>
-            <p className="text-white/30 text-sm mt-4 font-light">
+            <p className="text-white/30 text-base mt-6 font-light">
               30-min call • No pressure • Honest feedback guaranteed
             </p>
           </motion.div>
