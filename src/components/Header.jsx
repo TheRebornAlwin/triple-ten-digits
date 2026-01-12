@@ -57,7 +57,7 @@ const Header = () => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-pure-black/90 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+          ? 'bg-pure-black/90 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
           : 'bg-transparent'
       }`}
     >
