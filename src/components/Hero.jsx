@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import SplitType from 'split-type';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -9,28 +8,14 @@ const Hero = () => {
   const sublineRef = useRef(null);
 
   useEffect(() => {
-    // Character-by-character text reveal
+    // Simple fade-in for headline
     if (headlineRef.current && sublineRef.current) {
-      const headlineSplit = new SplitType(headlineRef.current, { types: 'chars' });
-      const sublineSplit = new SplitType(sublineRef.current, { types: 'chars,words' });
-
-      gsap.from(headlineSplit.chars, {
-        opacity: 0,
-        y: 50,
-        rotateX: -90,
-        stagger: 0.02,
-        duration: 1,
-        ease: 'expo.out',
-        delay: 0.3
-      });
-
-      gsap.from(sublineSplit.words, {
+      gsap.from(headlineRef.current, {
         opacity: 0,
         y: 30,
-        stagger: 0.03,
-        duration: 0.8,
-        ease: 'expo.out',
-        delay: 1.2
+        duration: 0.6,
+        ease: 'power2.out',
+        delay: 0.2
       });
     }
 
@@ -101,22 +86,18 @@ const Hero = () => {
           {/* Main Headline */}
           <h1
             ref={headlineRef}
-            className="text-6xl md:text-7xl lg:text-[7rem] xl:text-[8rem] font-serif font-bold mb-8 leading-[0.95]"
+            className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight"
           >
             <span className="text-white">We Don't Just Run Ads.</span>
-            <br />
-            <span className="text-gradient-flow luxury-glow-strong">
-              We Build Growth Machines.
-            </span>
           </h1>
 
           {/* Subheadline */}
           <motion.p
             ref={sublineRef}
-            className="text-xl md:text-2xl lg:text-3xl text-chrome-silver/80 mb-16 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl lg:text-2xl text-chrome-silver/80 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
             Strategic marketing partners for ambitious businesses. We do whatever it takes to drive real,
             measurable growth—not just check boxes on a service list.
@@ -126,15 +107,15 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.6, ease: 'backOut' }}
+            transition={{ delay: 0.8, duration: 0.4, ease: 'backOut' }}
           >
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-3 px-14 py-6 rounded-full bg-liquid-gold text-pure-black text-lg md:text-xl font-bold transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 px-12 py-5 rounded-full bg-liquid-gold text-pure-black text-lg font-bold transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
             >
               Let's Talk Growth
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -146,10 +127,10 @@ const Hero = () => {
 
           {/* Scroll Indicator */}
           <motion.div
-            className="mt-32 flex flex-col items-center gap-4"
+            className="mt-20 flex flex-col items-center gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
           >
             <span className="text-sm text-chrome-silver/60 uppercase tracking-[0.3em] font-mono">
               Scroll to explore
