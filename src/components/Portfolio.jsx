@@ -1,31 +1,8 @@
-import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Portfolio = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
-
-  useEffect(() => {
-    const cards = gsap.utils.toArray('.portfolio-card');
-    
-    cards.forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 80%',
-          end: 'top 30%',
-          scrub: 1,
-        },
-        y: 100,
-        opacity: 0,
-        scale: 0.9,
-      });
-    });
-  }, []);
 
   const caseStudies = [
     {
@@ -63,7 +40,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-50 overflow-hidden">
+    <section ref={ref} className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-7xl">
@@ -73,12 +50,14 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-display font-serif font-bold mb-6">
-            Real Businesses.
-            <span className="text-gradient-flow"> Real Results.</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-white leading-tight">
+            Real Businesses Like Yours.
+            <br />
+            <span className="text-liquid-gold">Real Results That Matter.</span>
           </h2>
-          <p className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
-            We don't deal in promises. Here's what we've actually delivered.
+          <p className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
+            Not hypotheticals. Not projections. Actual revenue generated for businesses run by people
+            <span className="text-white"> just like you</span>.
           </p>
         </motion.div>
 
@@ -86,7 +65,7 @@ const Portfolio = () => {
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="portfolio-card group glass-card rounded-3xl p-10 lg:p-12 hover:scale-[1.01] transition-all duration-500 relative overflow-hidden"
+              className="group glass-card rounded-3xl p-10 lg:p-12 hover:scale-[1.01] transition-all duration-500 relative overflow-hidden"
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               

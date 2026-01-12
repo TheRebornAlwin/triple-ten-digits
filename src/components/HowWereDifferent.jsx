@@ -1,42 +1,8 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const HowWereDifferent = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const sectionRef = useRef(null);
-  const cardsRef = useRef(null);
-
-  useEffect(() => {
-    if (!sectionRef.current || !cardsRef.current) return;
-
-    const cards = gsap.utils.toArray('.comparison-card');
-    
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: '.comparison-content',
-      pinSpacing: false,
-    });
-
-    cards.forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 1,
-        },
-        x: -100,
-        opacity: 0,
-      });
-    });
-  }, []);
 
   const differences = [
     {
@@ -58,13 +24,13 @@ const HowWereDifferent = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-50 overflow-hidden grain-texture min-h-screen">
+    <section ref={ref} className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
-      
+
       {/* Gold gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
-      <div className="comparison-content container mx-auto px-6 lg:px-20 relative z-10 max-w-8xl">
+      <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-8xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -80,11 +46,11 @@ const HowWereDifferent = () => {
           </p>
         </motion.div>
 
-        <div ref={cardsRef} className="space-y-8 max-w-6xl mx-auto">
+        <div className="space-y-8 max-w-6xl mx-auto">
           {differences.map((item, index) => (
             <div
               key={index}
-              className="comparison-card grid md:grid-cols-2 gap-6 p-8 rounded-3xl glass-card"
+              className="grid md:grid-cols-2 gap-6 p-8 rounded-3xl glass-card hover:scale-[1.01] transition-all duration-300"
             >
               {/* Them */}
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-elevated-surface/50 border border-white/5">

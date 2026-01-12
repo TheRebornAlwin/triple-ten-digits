@@ -26,7 +26,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-50 overflow-hidden">
+    <section ref={ref} className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-pure-black" />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-7xl">
@@ -36,11 +36,13 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-display font-serif font-bold mb-6">
-            Don't Take Our Word For It
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-white leading-tight">
+            From Skeptical Business Owners
+            <br />
+            <span className="text-liquid-gold">To Our Biggest Advocates</span>
           </h2>
-          <p className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
-            Here's what our clients have to say.
+          <p className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
+            They were drowning in marketing confusion. Now they're thriving.
           </p>
         </motion.div>
 

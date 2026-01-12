@@ -28,7 +28,7 @@ const Process = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-50 overflow-hidden grain-texture">
+    <section ref={ref} className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-6xl">
@@ -38,11 +38,13 @@ const Process = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-display font-serif font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-white leading-tight">
             How We Work
+            <br />
+            <span className="text-white/40">(Without Making You a Marketer)</span>
           </h2>
-          <p className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
-            Simple, transparent, designed to get you results fast.
+          <p className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
+            Simple, transparent, designed to get you results while you focus on your business.
           </p>
         </motion.div>
 

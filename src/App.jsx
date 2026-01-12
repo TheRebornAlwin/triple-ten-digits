@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import WhoThisIsFor from './components/WhoThisIsFor';
 import WhatWeDo from './components/WhatWeDo';
 import HowWereDifferent from './components/HowWereDifferent';
 import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
+import WhatToExpect from './components/WhatToExpect';
 import Process from './components/Process';
 import About from './components/About';
 import CTA from './components/CTA';
@@ -22,10 +24,12 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <WhoThisIsFor />
         <WhatWeDo />
         <HowWereDifferent />
         <Portfolio />
         <Testimonials />
+        <WhatToExpect />
         <Process />
         <About />
         <CTA />
