@@ -12,28 +12,45 @@ const services = [
     objection: 'Not another agency promising ROI...',
     description: "Meta, Google, TikTok—we obsessively optimize every campaign for revenue, not vanity metrics. Your bottom line is our only KPI.",
     metrics: ['387% ROAS', '£13.8k in 30 days'],
-    icon: '📊',
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
   },
   {
     title: 'Websites That Actually Sell',
     objection: 'My current site looks fine though...',
     description: "Not a digital brochure—a sales machine engineered with conversion psychology that works 24/7. Pretty doesn't pay the bills.",
     metrics: ['124% ↑ conversions', '3.2x transaction value'],
-    icon: '⚡',
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    ),
   },
   {
     title: 'Creative That Stops the Scroll',
     objection: 'I can just use Canva...',
     description: "Your audience is bombarded with 10,000 ads daily. We create thumb-stopping visuals and copy that make people stop, think, and buy.",
     metrics: ['6x engagement', '89% watch time'],
-    icon: '🎯',
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+    ),
   },
   {
     title: 'Strategy That Actually Works',
     objection: 'Do I really need a strategist?',
     description: "Sometimes you need a complete rethink. We tell you what you NEED to hear, not what you want to hear. No fluff, just growth.",
     metrics: ['£89k new contracts', '4 months booked'],
-    icon: '🚀',
+    icon: (
+      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+      </svg>
+    ),
   },
 ];
 
@@ -113,7 +130,7 @@ const WhatWeDo = () => {
               <div className="absolute inset-0 rounded-3xl border border-white/5 group-hover:border-liquid-gold/40 transition-all duration-500" />
 
               {/* Floating icon */}
-              <div className="absolute top-10 right-10 text-6xl opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500">
+              <div className="absolute top-10 right-10 w-20 h-20 text-white opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500">
                 {service.icon}
               </div>
 
