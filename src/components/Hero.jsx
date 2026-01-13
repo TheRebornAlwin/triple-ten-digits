@@ -132,13 +132,7 @@ const Hero = () => {
             className="max-w-4xl mx-auto space-y-6"
           >
             <p className="text-2xl md:text-3xl text-white/70 font-light leading-relaxed">
-              Strategic marketing partners for ambitious businesses who are tired of
-              <span className="relative inline-block mx-2">
-                <span className="text-white/30 line-through">pretty reports</span>
-                <span className="absolute -bottom-1 left-0 text-liquid-gold text-lg font-medium whitespace-nowrap">
-                  real results
-                </span>
-              </span>
+              Strategic marketing partners for ambitious businesses who are tired of pretty reports and want <span className="text-liquid-gold font-medium">real results</span>.
             </p>
             <p className="text-lg md:text-xl text-white/40 max-w-2xl mx-auto leading-relaxed">
               We do whatever it takes to drive measurable growth—not just check boxes on a service list.
