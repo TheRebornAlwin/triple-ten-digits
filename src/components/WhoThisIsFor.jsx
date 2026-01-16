@@ -45,13 +45,13 @@ const WhoThisIsFor = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-pure-black" />
 
       {/* Subtle background gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-8 lg:px-20 max-w-8xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-8xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -62,13 +62,13 @@ const WhoThisIsFor = () => {
             <span className="text-xs text-white/60 uppercase tracking-[0.25em]">Sound Familiar?</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-white leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-white leading-tight mb-6 px-4">
             You're Great at Your Business.
             <br />
-            <span className="text-white/40">Just Not the Marketing Part.</span>
+            <span className="text-white/40">We're Good At the Marketing Part.</span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-white/50 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/50 max-w-3xl mx-auto font-light leading-relaxed px-4">
             And that's exactly why we exist. You don't need to become a marketer—
             <span className="text-liquid-gold"> you need a partner who gets it</span>.
           </p>

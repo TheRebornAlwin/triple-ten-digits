@@ -6,6 +6,7 @@ import WhoThisIsFor from './components/WhoThisIsFor';
 import WhatWeDo from './components/WhatWeDo';
 import HowWereDifferent from './components/HowWereDifferent';
 import Portfolio from './components/Portfolio';
+import Founders from './components/Founders';
 import Testimonials from './components/Testimonials';
 import WhatToExpect from './components/WhatToExpect';
 import Process from './components/Process';
@@ -30,6 +31,7 @@ function App() {
         <WhatWeDo />
         <HowWereDifferent />
         <Portfolio />
+        <Founders />
         <Testimonials />
         <WhatToExpect />
         <Process />

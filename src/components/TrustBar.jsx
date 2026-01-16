@@ -37,11 +37,11 @@ const TrustBar = () => {
   }, []);
 
   return (
-    <section className="relative py-20 border-y border-white/5 bg-pure-black overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 border-y border-white/5 bg-pure-black overflow-hidden">
       {/* Subtle glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-liquid-gold/5 via-transparent to-liquid-gold/5" />
 
-      <div className="container mx-auto px-8 lg:px-20 max-w-8xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-8xl relative z-10">
         {/* Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
           <motion.div
@@ -50,10 +50,10 @@ const TrustBar = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <div className="text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
               £{revenue.toFixed(1)}M+
             </div>
-            <div className="text-white/50 text-sm uppercase tracking-wider">Revenue Generated</div>
+            <div className="text-white/50 text-xs sm:text-sm uppercase tracking-wider">Revenue Generated</div>
           </motion.div>
 
           <motion.div
@@ -62,10 +62,10 @@ const TrustBar = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center"
           >
-            <div className="text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
               387%
             </div>
-            <div className="text-white/50 text-sm uppercase tracking-wider">Average ROAS</div>
+            <div className="text-white/50 text-xs sm:text-sm uppercase tracking-wider">Average ROAS</div>
           </motion.div>
 
           <motion.div
@@ -74,10 +74,10 @@ const TrustBar = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center"
           >
-            <div className="text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
+            <div className="text-4xl sm:text-5xl md:text-6xl font-display text-liquid-gold mb-2 font-light">
               {clients}
             </div>
-            <div className="text-white/50 text-sm uppercase tracking-wider">Active Clients</div>
+            <div className="text-white/50 text-xs sm:text-sm uppercase tracking-wider">Active Clients</div>
           </motion.div>
         </div>
 

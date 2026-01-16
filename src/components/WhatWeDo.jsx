@@ -85,11 +85,11 @@ const WhatWeDo = () => {
   }, [inView]);
 
   return (
-    <section ref={ref} className="relative py-32 bg-pure-black overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-24 md:py-32 bg-pure-black overflow-hidden">
       {/* Subtle background accent */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-8 lg:px-20 max-w-8xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-8xl relative z-10">
         {/* Section header with objection handling */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -103,13 +103,13 @@ const WhatWeDo = () => {
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10" />
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light text-center mb-6 text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-light text-center mb-6 text-white leading-tight px-4">
             Everything You Need
             <br />
             <span className="text-white/40">(When It Makes Sense)</span>
           </h2>
 
-          <p className="text-lg md:text-xl text-center text-white/50 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-center text-white/50 max-w-3xl mx-auto font-light leading-relaxed px-4">
             We're not boxed into services. We're strategic partners who do whatever your business needs to{' '}
             <span className="text-liquid-gold">actually grow</span>.
           </p>

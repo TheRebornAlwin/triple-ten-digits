@@ -82,7 +82,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-14">
+        <div className="text-center space-y-14 pt-20 md:pt-32">
           {/* Premium badge with glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -106,10 +106,10 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="relative mb-8"
           >
-            <span className="block text-7xl md:text-8xl lg:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
               We Don't Just
             </span>
-            <span className="block text-7xl md:text-8xl lg:text-[120px] font-display font-light leading-[0.95] tracking-tight mt-4">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[120px] font-display font-light leading-[0.95] tracking-tight mt-4">
               <span className="text-white">Run </span>
               <span className="relative inline-block">
                 <span className="text-liquid-gold">Ads.</span>
@@ -129,13 +129,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="max-w-4xl mx-auto space-y-6"
+            className="max-w-4xl mx-auto"
           >
-            <p className="text-2xl md:text-3xl text-white/70 font-light leading-relaxed">
-              Strategic marketing partners for ambitious businesses who are tired of pretty reports and want <span className="text-liquid-gold font-medium">real results</span>.
-            </p>
-            <p className="text-lg md:text-xl text-white/40 max-w-2xl mx-auto leading-relaxed">
-              We do whatever it takes to drive measurable growth—not just check boxes on a service list.
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/70 font-light leading-relaxed px-4">
+              Strategic marketing partners for ambitious businesses who are tired of pretty reports and want <span className="text-liquid-gold font-medium">massive, measurable results</span>.
             </p>
           </motion.div>
 
@@ -149,7 +146,7 @@ const Hero = () => {
             <a
               ref={ctaRef}
               href="#contact"
-              className="group relative inline-flex items-center gap-4 px-12 py-6 bg-white text-pure-black text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] cursor-pointer"
+              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-white text-pure-black text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] cursor-pointer"
             >
               <span>Book a Strategy Call</span>
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
