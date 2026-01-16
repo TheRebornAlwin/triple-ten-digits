@@ -146,14 +146,12 @@ const Hero = () => {
             <a
               ref={ctaRef}
               href="#contact"
-              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-white text-pure-black text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,255,255,0.4)] cursor-pointer"
+              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-liquid-gold text-pure-black text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:bg-liquid-gold/90 cursor-pointer"
             >
               <span>Book a Strategy Call</span>
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-full bg-liquid-gold/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
             </a>
             <p className="text-white/30 text-base mt-6 font-light">
               30-min call • No pressure • Honest feedback guaranteed
@@ -161,23 +159,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator with animation */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-white/20 text-xs uppercase tracking-widest">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[1px] h-24 bg-gradient-to-b from-white/40 via-liquid-gold/60 to-transparent"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
