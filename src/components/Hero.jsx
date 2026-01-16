@@ -82,7 +82,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-14 pt-20 md:pt-32">
+        <div className="text-center space-y-12 md:space-y-14">
           {/* Premium badge with glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

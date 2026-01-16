@@ -80,11 +80,9 @@ const Header = () => {
         <a
           ref={ctaRef}
           href="#contact"
-          className="group relative px-7 py-3 text-sm font-semibold text-white border-2 border-liquid-gold/40 rounded-full transition-all duration-300 hover:bg-liquid-gold hover:text-pure-black hover:border-liquid-gold cursor-pointer overflow-hidden"
+          className="group relative px-7 py-3 text-sm font-semibold text-pure-black bg-white rounded-full transition-all duration-300 hover:shadow-[0_15px_40px_rgba(255,255,255,0.4)] cursor-pointer"
         >
           <span className="relative z-10">Book a Call</span>
-          {/* Animated background */}
-          <div className="absolute inset-0 bg-liquid-gold/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         </a>
       </nav>
     </motion.header>
