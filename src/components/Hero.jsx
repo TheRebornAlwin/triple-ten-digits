@@ -83,22 +83,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
         <div className="text-center space-y-12 md:space-y-14">
-          {/* Premium badge with glow */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark backdrop-blur-2xl border border-liquid-gold/30 shadow-[0_0_30px_rgba(212,175,55,0.3)]"
-          >
-            <div className="relative">
-              <div className="w-2 h-2 rounded-full bg-liquid-gold animate-pulse" />
-              <div className="absolute inset-0 w-2 h-2 rounded-full bg-liquid-gold animate-ping" />
-            </div>
-            <span className="text-xs text-white uppercase tracking-[0.25em] font-medium">
-              Strategic Growth Partners
-            </span>
-          </motion.div>
-
           {/* Dynamic headline with word stagger */}
           <motion.h1
             initial={{ opacity: 0 }}
