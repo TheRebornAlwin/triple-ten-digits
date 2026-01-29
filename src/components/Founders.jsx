@@ -6,14 +6,14 @@ const Founders = () => {
 
   const founders = [
     {
+      name: 'Alwin',
+      image: 'https://ffjq345kpi.ufs.sh/f/wcvmaciXvbR7hX8LK1QSvR1n2zyUDY3OqoWsp6iNlkcHJEba',
+      bio: "Former performance marketing lead at multiple 7-figure brands. Alwin obsesses over one thing: measurable results. He's the strategist who'll tell you what you need to hear, not what you want to hear.",
+    },
+    {
       name: 'Connor',
       image: 'https://ffjq345kpi.ufs.sh/f/wcvmaciXvbR7Qe5cQbaRWwoO7k9p05F3YfmtNEgqrKAlZXn6',
       bio: "Built his first 6-figure business at 19. Connor understands what makes people stop scrolling and start buying. He combines data-driven strategy with creative that actually converts.",
-    },
-    {
-      name: 'Alwin',
-      image: 'https://ffjq345kpi.ufs.sh/f/wcvmaciXvbR76uNJRBYWJFM8gGvWQHxzqck3bwtKUN6IaVYp',
-      bio: "Former performance marketing lead at multiple 7-figure brands. Alwin obsesses over one thing: measurable results. He's the strategist who'll tell you what you need to hear, not what you want to hear.",
     },
   ];
 
