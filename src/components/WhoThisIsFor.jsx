@@ -21,7 +21,7 @@ const WhoThisIsFor = () => {
         </svg>
       ),
       pain: "Marketing feels like a foreign language",
-      description: "Facebook Ads? SEO? Funnels? You didn't start a business to become a marketing expert—you just want customers.",
+      description: "Facebook Ads? SEO? Funnels? You didn't start a business to become a marketing expert. You just want customers.",
     },
     {
       icon: (
@@ -69,7 +69,7 @@ const WhoThisIsFor = () => {
           </h2>
 
           <p className="text-lg sm:text-xl md:text-2xl text-white/50 max-w-3xl mx-auto font-light leading-relaxed px-4">
-            And that's exactly why we exist. You don't need to become a marketer—
+            And that's exactly why we exist. You don't need to become a marketer,
             <span className="text-liquid-gold"> you need a partner who gets it</span>.
           </p>
         </motion.div>

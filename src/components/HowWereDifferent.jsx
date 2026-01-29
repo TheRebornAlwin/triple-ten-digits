@@ -91,7 +91,7 @@ const HowWereDifferent = () => {
             The bottom line?
           </p>
           <p className="text-xl text-chrome-silver/90 leading-relaxed">
-            We're strategic partners, not vendors. We care about your business like it's our own—because your success is our success.
+            We're strategic partners, not vendors. We care about your business like it's our own, because your success is our success.
           </p>
         </motion.div>
       </div>

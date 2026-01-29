@@ -82,7 +82,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-12 md:space-y-14">
+        <div className="text-center space-y-12 md:space-y-14 pt-16 md:pt-24">
           {/* Dynamic headline with word stagger */}
           <motion.h1
             initial={{ opacity: 0 }}

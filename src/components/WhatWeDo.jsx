@@ -10,7 +10,7 @@ const services = [
   {
     title: 'Paid Ads That Print Money',
     objection: 'Not another agency promising ROI...',
-    description: "Meta, Google, TikTok—we obsessively optimize every campaign for revenue, not vanity metrics. Your bottom line is our only KPI.",
+    description: "Meta, Google, TikTok. We obsessively optimize every campaign for revenue, not vanity metrics. Your bottom line is our only KPI.",
     metrics: ['387% ROAS', '£13.8k in 30 days'],
     icon: (
       <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -21,7 +21,7 @@ const services = [
   {
     title: 'Websites That Actually Sell',
     objection: 'My current site looks fine though...',
-    description: "Not a digital brochure—a sales machine engineered with conversion psychology that works 24/7. Pretty doesn't pay the bills.",
+    description: "Not a digital brochure, but a sales machine engineered with conversion psychology that works 24/7. Pretty doesn't pay the bills.",
     metrics: ['124% ↑ conversions', '3.2x transaction value'],
     icon: (
       <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

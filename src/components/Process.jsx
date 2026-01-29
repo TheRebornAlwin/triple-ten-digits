@@ -8,12 +8,12 @@ const Process = () => {
     {
       number: '01',
       title: 'Discovery Call',
-      description: "We dig deep into your business, goals, and challenges. No sales pitch—just genuine conversation.",
+      description: "We dig deep into your business, goals, and challenges. No sales pitch, just genuine conversation.",
     },
     {
       number: '02',
       title: 'Strategic Planning',
-      description: "Custom growth strategy tailored to your business. Not a template—a plan designed for you.",
+      description: "Custom growth strategy tailored to your business. Not a template, but a plan designed specifically for you.",
     },
     {
       number: '03',

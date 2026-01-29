@@ -6,13 +6,13 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      quote: "They didn't just run our ads—they transformed how we think about growth. Fully booked within two months.",
+      quote: "They didn't just run our ads, they transformed how we think about growth. Fully booked within two months.",
       author: "Sarah Mitchell",
       company: "Rejuvenating Touch",
       result: "6 bookings in first month",
     },
     {
-      quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself—£13.8k in the first month alone.",
+      quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself, £13.8k in the first month alone.",
       author: "David Chen",
       company: "Fake Plastic Chairs",
       result: "£13,800 revenue, 387% ROAS",

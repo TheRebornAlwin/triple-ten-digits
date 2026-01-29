@@ -7,7 +7,7 @@ const WhatToExpect = () => {
   const expectations = [
     {
       title: "Honest Feedback (Even If It Hurts)",
-      description: "We're not yes-men. If your pricing is wrong, your offer is weak, or your expectations are unrealistic—we'll tell you. Because real growth requires real honesty.",
+      description: "We're not yes-men. If your pricing is wrong, your offer is weak, or your expectations are unrealistic, we'll tell you. Because real growth requires real honesty.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -25,7 +25,7 @@ const WhatToExpect = () => {
     },
     {
       title: "Real Partnership, Not Just Service",
-      description: "You're not a ticket number. We become invested in your success like it's our own business—because your growth is literally our business model.",
+      description: "You're not a ticket number. We become invested in your success like it's our own business, because your growth is literally our business model.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -43,7 +43,7 @@ const WhatToExpect = () => {
     },
     {
       title: "No Long-Term Contracts",
-      description: "Month-to-month. If we're not delivering, you can walk. We earn your business every single month—that's how it should be.",
+      description: "Month-to-month. If we're not delivering, you can walk. We earn your business every single month, and that's how it should be.",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -82,7 +82,7 @@ const WhatToExpect = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-white/50 max-w-3xl mx-auto font-light leading-relaxed">
-            You've been burned before. Here's exactly what to expect from us—
+            You've been burned before. Here's exactly what to expect from us,
             <span className="text-white"> no marketing fluff</span>.
           </p>
         </motion.div>

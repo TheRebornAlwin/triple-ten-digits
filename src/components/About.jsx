@@ -32,7 +32,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/70 font-light text-xl"
           >
-            We started this because we kept meeting brilliant business owners—people exceptional at their craft—
+            We started this because we kept meeting brilliant business owners, people exceptional at their craft,
             who were getting absolutely screwed by marketing agencies. Paying thousands for "strategies" that
             were just templates. Getting reports full of metrics that meant nothing.
           </motion.p>
@@ -68,7 +68,7 @@ const About = () => {
               Here's our promise:
             </p>
             <p className="text-white/80 text-xl font-light leading-relaxed">
-              We only succeed when you succeed. If you're not getting customers, not seeing ROI, not growing—
+              We only succeed when you succeed. If you're not getting customers, not seeing ROI, not growing,
               we've failed. That's why we're selective about who we work with. Your success literally becomes our portfolio.
             </p>
           </motion.div>
