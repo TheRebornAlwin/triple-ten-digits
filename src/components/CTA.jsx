@@ -37,8 +37,9 @@ const CTA = () => {
               className="inline-flex items-center gap-3 px-12 py-6 bg-white text-pure-black text-base font-medium rounded-full transition-all duration-300 hover:bg-white/90 hover:gap-4 hover:shadow-2xl"
             >
               Book Your Strategy Call
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M13 6L19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
           </div>
@@ -46,20 +47,24 @@ const CTA = () => {
           {/* Trust signals */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-12 pt-8 text-white/30 text-sm font-light">
             <div className="flex items-center gap-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M6 10L9 13L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span>No commitment required</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M10 5V10L13 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span>30-minute call</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M10 6V10M10 14V14.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M7 8C7.5 7 8.5 6.5 10 6.5C12 6.5 13 7.5 13 9C13 10.5 11.5 11 10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
               </svg>
               <span>Honest feedback guaranteed</span>
             </div>

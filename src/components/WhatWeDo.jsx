@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TextReveal from './TextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,8 +14,25 @@ const services = [
     description: "Meta, Google, TikTok. We obsessively optimize every campaign for revenue, not vanity metrics. Your bottom line is our only KPI.",
     metrics: ['387% ROAS', '£13.8k in 30 days'],
     icon: (
-      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
+        {/* Money printing/growth chart icon */}
+        <defs>
+          <linearGradient id="chartGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.4" />
+          </linearGradient>
+        </defs>
+        {/* Rising bars with glow effect */}
+        <rect x="6" y="30" width="8" height="14" rx="1" fill="url(#chartGrad)" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="18" y="22" width="8" height="22" rx="1" fill="url(#chartGrad)" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="30" y="12" width="8" height="32" rx="1" fill="url(#chartGrad)" stroke="currentColor" strokeWidth="1.5" />
+        {/* Upward arrow */}
+        <path d="M40 8L44 4L44 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M44 4L38 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M44 4L30 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" />
+        {/* Currency symbol */}
+        <circle cx="10" cy="8" r="5" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M10 5V11M8 7H12M8 9H12" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -24,8 +42,21 @@ const services = [
     description: "Not a digital brochure, but a sales machine engineered with conversion psychology that works 24/7. Pretty doesn't pay the bills.",
     metrics: ['124% ↑ conversions', '3.2x transaction value'],
     icon: (
-      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
+        {/* Browser window with conversion funnel */}
+        <rect x="4" y="6" width="40" height="36" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M4 14H44" stroke="currentColor" strokeWidth="1.5" />
+        {/* Browser dots */}
+        <circle cx="10" cy="10" r="1.5" fill="currentColor" opacity="0.5" />
+        <circle cx="16" cy="10" r="1.5" fill="currentColor" opacity="0.5" />
+        <circle cx="22" cy="10" r="1.5" fill="currentColor" opacity="0.5" />
+        {/* Conversion funnel inside */}
+        <path d="M14 20H34L30 30H18L14 20Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M18 30H30L26 38H22L18 30Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        {/* Arrow down showing conversion */}
+        <path d="M24 32V36M22 34L24 36L26 34" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        {/* Sparkle */}
+        <path d="M38 22L40 20L42 22L40 24L38 22Z" fill="currentColor" opacity="0.6" />
       </svg>
     ),
   },
@@ -35,9 +66,22 @@ const services = [
     description: "Your audience is bombarded with 10,000 ads daily. We create thumb-stopping visuals and copy that make people stop, think, and buy.",
     metrics: ['6x engagement', '89% watch time'],
     icon: (
-      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
+        {/* Hand stopping scroll / thumb with phone */}
+        <rect x="14" y="4" width="20" height="40" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <path d="M14 10H34" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+        <path d="M14 38H34" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+        {/* Eye/attention icon in center */}
+        <ellipse cx="24" cy="24" rx="8" ry="5" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <circle cx="24" cy="24" r="2.5" fill="currentColor" />
+        {/* Radiating attention lines */}
+        <path d="M10 18L6 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M10 30L6 34" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M38 18L42 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M38 30L42 34" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        {/* Sparkles */}
+        <circle cx="8" cy="24" r="1.5" fill="currentColor" opacity="0.6" />
+        <circle cx="40" cy="24" r="1.5" fill="currentColor" opacity="0.6" />
       </svg>
     ),
   },
@@ -47,8 +91,26 @@ const services = [
     description: "Sometimes you need a complete rethink. We tell you what you NEED to hear, not what you want to hear. No fluff, just growth.",
     metrics: ['£89k new contracts', '4 months booked'],
     icon: (
-      <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+      <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
+        {/* Chess knight / strategic thinking icon */}
+        <defs>
+          <linearGradient id="knightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.5" />
+          </linearGradient>
+        </defs>
+        {/* Chess knight silhouette */}
+        <path d="M16 40H32V36C32 36 34 34 34 30C34 26 32 24 30 22L32 16C32 16 28 14 26 14C26 14 28 10 26 8C24 6 20 8 20 8L18 12C18 12 14 14 14 20C14 26 16 28 16 32V40Z"
+          stroke="currentColor" strokeWidth="1.5" fill="url(#knightGrad)" strokeLinejoin="round" />
+        {/* Eye */}
+        <circle cx="22" cy="16" r="1.5" fill="currentColor" />
+        {/* Base platform */}
+        <rect x="12" y="40" width="24" height="4" rx="1" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        {/* Strategic nodes/connections */}
+        <circle cx="40" cy="12" r="3" stroke="currentColor" strokeWidth="1" fill="none" />
+        <circle cx="42" cy="24" r="2" stroke="currentColor" strokeWidth="1" fill="none" />
+        <path d="M37 14L40 22" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" opacity="0.5" />
+        <circle cx="8" cy="28" r="2" stroke="currentColor" strokeWidth="1" fill="none" />
       </svg>
     ),
   },
@@ -109,10 +171,9 @@ const WhatWeDo = () => {
             <span className="text-white/40">(When It Makes Sense)</span>
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-center text-white/50 max-w-3xl mx-auto font-light leading-relaxed px-4">
-            We're not boxed into services. We're strategic partners who do whatever your business needs to{' '}
-            <span className="text-liquid-gold">actually grow</span>.
-          </p>
+          <TextReveal className="text-base sm:text-lg md:text-xl text-center text-white/50 max-w-3xl mx-auto font-light leading-relaxed px-4">
+            We're not boxed into services. We're strategic partners who do whatever your business needs to actually grow.
+          </TextReveal>
         </motion.div>
 
         {/* Dynamic card grid - breaking the standard grid */}
@@ -163,8 +224,10 @@ const WhatWeDo = () => {
 
               {/* Arrow indicator */}
               <div className="absolute bottom-10 right-10 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300">
-                <svg className="w-6 h-6 text-liquid-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg className="w-6 h-6 text-liquid-gold" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M14 6L20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <circle cx="20" cy="12" r="2" fill="currentColor" opacity="0.3" />
                 </svg>
               </div>
             </div>

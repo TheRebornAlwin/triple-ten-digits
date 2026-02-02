@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
+import BigMarquee from './components/BigMarquee';
 import WhoThisIsFor from './components/WhoThisIsFor';
 import WhatWeDo from './components/WhatWeDo';
 import HowWereDifferent from './components/HowWereDifferent';
@@ -28,9 +29,11 @@ function App() {
         <Hero />
         <TrustBar />
         <WhoThisIsFor />
+        <BigMarquee text="GROWTH \u00B7 RESULTS \u00B7 REVENUE" direction="left" />
         <WhatWeDo />
         <HowWereDifferent />
         <Portfolio />
+        <BigMarquee text="REAL RESULTS FOR REAL BUSINESSES" direction="right" />
         <Founders />
         <Testimonials />
         <WhatToExpect />

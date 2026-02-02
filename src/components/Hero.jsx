@@ -7,6 +7,45 @@ const Hero = () => {
   const ctaRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  // Animated counters
+  const [revenue, setRevenue] = useState(0);
+  const [roas, setRoas] = useState(0);
+  const [clients, setClients] = useState(0);
+
+  useEffect(() => {
+    // Animate counters
+    const revenueTarget = 2.3;
+    const roasTarget = 387;
+    const clientsTarget = 47;
+
+    const revenueInterval = setInterval(() => {
+      setRevenue((prev) => {
+        if (prev >= revenueTarget) { clearInterval(revenueInterval); return revenueTarget; }
+        return Math.min(prev + 0.05, revenueTarget);
+      });
+    }, 30);
+
+    const roasInterval = setInterval(() => {
+      setRoas((prev) => {
+        if (prev >= roasTarget) { clearInterval(roasInterval); return roasTarget; }
+        return Math.min(prev + 8, roasTarget);
+      });
+    }, 30);
+
+    const clientsInterval = setInterval(() => {
+      setClients((prev) => {
+        if (prev >= clientsTarget) { clearInterval(clientsInterval); return clientsTarget; }
+        return Math.min(prev + 1, clientsTarget);
+      });
+    }, 40);
+
+    return () => {
+      clearInterval(revenueInterval);
+      clearInterval(roasInterval);
+      clearInterval(clientsInterval);
+    };
+  }, []);
+
   useEffect(() => {
     // Parallax effect on mouse move
     const handleMouseMove = (e) => {
@@ -54,8 +93,14 @@ const Hero = () => {
     }
   }, []);
 
+  const metrics = [
+    { value: `£${revenue.toFixed(1)}M+`, label: 'Revenue Generated' },
+    { value: `${roas}%`, label: 'Average ROAS' },
+    { value: `${clients}`, label: 'Active Clients' },
+  ];
+
   return (
-    <section ref={heroRef} className="relative h-screen flex items-center justify-center bg-pure-black overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center bg-pure-black overflow-hidden">
       {/* Dynamic ambient background with parallax */}
       <div className="absolute inset-0">
         <motion.div
@@ -82,13 +127,13 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-12 md:space-y-14 pt-32 md:pt-44">
+        <div className="text-center space-y-10 md:space-y-12 pt-32 md:pt-40 pb-16 md:pb-24">
           {/* Dynamic headline with word stagger */}
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative mb-8"
+            className="relative mb-4"
           >
             <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
               We Don't Just
@@ -125,7 +170,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-6"
+            className="pt-2"
           >
             <a
               ref={ctaRef}
@@ -133,16 +178,61 @@ const Hero = () => {
               className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-liquid-gold text-pure-black text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:bg-liquid-gold/90 cursor-pointer"
             >
               <span>Book a Strategy Call</span>
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12H20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M14 6L20 12L14 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
             <p className="text-white/30 text-base mt-6 font-light">
-              30-min call • No pressure • Honest feedback guaranteed
+              30-min call &bull; No pressure &bull; Honest feedback guaranteed
             </p>
+          </motion.div>
+
+          {/* Metrics bar - integrated into hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className="pt-8 md:pt-12"
+          >
+            <div className="grid grid-cols-3 gap-4 md:gap-12 max-w-3xl mx-auto border-t border-white/10 pt-10">
+              {metrics.map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-2xl sm:text-3xl md:text-5xl font-display text-liquid-gold mb-1 font-light">
+                    {metric.value}
+                  </div>
+                  <div className="text-white/40 text-[10px] sm:text-xs uppercase tracking-wider">
+                    {metric.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-white/20 text-xs uppercase tracking-widest">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+        >
+          <div className="w-1 h-2 rounded-full bg-liquid-gold" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

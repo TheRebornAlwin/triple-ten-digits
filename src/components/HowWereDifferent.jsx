@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import TextReveal from './TextReveal';
 
 const HowWereDifferent = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -41,9 +42,9 @@ const HowWereDifferent = () => {
             Typical Agencies vs.
             <span className="text-gradient-flow"> Us</span>
           </h2>
-          <p className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
+          <TextReveal className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
             We're not your typical marketing agency. Here's exactly how we're different.
-          </p>
+          </TextReveal>
         </motion.div>
 
         <div className="space-y-8 max-w-6xl mx-auto">
@@ -55,8 +56,10 @@ const HowWereDifferent = () => {
               {/* Them */}
               <div className="flex items-start gap-4 p-6 rounded-2xl bg-elevated-surface/50 border border-white/5">
                 <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg className="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.3" />
+                    <path d="M8 8L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M16 8L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   </svg>
                 </div>
                 <div>
@@ -68,8 +71,11 @@ const HowWereDifferent = () => {
               {/* Us */}
               <div className="flex items-start gap-4 p-6 rounded-2xl glass-gold border border-liquid-gold/30">
                 <div className="w-10 h-10 rounded-full bg-liquid-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-liquid-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-5 h-5 text-liquid-gold" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.3" />
+                    <path d="M7 12L10.5 15.5L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    {/* Small sparkle accent */}
+                    <circle cx="17" cy="8" r="1.5" fill="currentColor" opacity="0.5" />
                   </svg>
                 </div>
                 <div>
@@ -90,9 +96,9 @@ const HowWereDifferent = () => {
           <p className="text-3xl font-serif font-bold text-white mb-4">
             The bottom line?
           </p>
-          <p className="text-xl text-chrome-silver/90 leading-relaxed">
+          <TextReveal className="text-xl text-chrome-silver/90 leading-relaxed" start="top 85%" end="top 55%">
             We're strategic partners, not vendors. We care about your business like it's our own, because your success is our success.
-          </p>
+          </TextReveal>
         </motion.div>
       </div>
     </section>

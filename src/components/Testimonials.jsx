@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import TextReveal from './TextReveal';
 
 const Testimonials = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -41,27 +42,29 @@ const Testimonials = () => {
             <br />
             <span className="text-liquid-gold">To Our Biggest Advocates</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
+          <TextReveal className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
             They were drowning in marketing confusion. Now they're thriving.
-          </p>
+          </TextReveal>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 60 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.15 }}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="group glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-liquid-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 rounded-3xl border border-liquid-gold/0 group-hover:border-liquid-gold/40 transition-all duration-500" />
 
               <div className="relative z-10">
+                {/* Custom quote SVG */}
                 <div className="w-14 h-14 bg-liquid-gold rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-pure-black" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  <svg className="w-7 h-7 text-pure-black" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 15C4 12 6 8 10 6L11 8C8 9.5 7 11.5 7 13H10V18H4V15Z" fill="currentColor" />
+                    <path d="M14 15C14 12 16 8 20 6L21 8C18 9.5 17 11.5 17 13H20V18H14V15Z" fill="currentColor" />
                   </svg>
                 </div>
 
