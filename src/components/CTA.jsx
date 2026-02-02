@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import NeonOrbs from './NeonOrbs';
 
 const CTA = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <section id="contact" ref={ref} className="relative py-48 overflow-hidden">
-      {/* Subtle ambient glow */}
+      {/* Neon orbs background */}
       <div className="absolute inset-0 bg-pure-black">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-liquid-gold/5 rounded-full blur-3xl" />
+        <NeonOrbs />
       </div>
 
       <div className="container mx-auto px-8 lg:px-20 max-w-5xl relative z-10">

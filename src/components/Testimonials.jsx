@@ -1,87 +1,247 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import TextReveal from './TextReveal';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
+const testimonials = [
+  {
+    quote: "They didn't just run our ads, they transformed how we think about growth. Fully booked within two months.",
+    author: "Sarah Mitchell",
+    role: "Owner",
+    company: "Rejuvenating Touch",
+    result: "6 bookings in first month",
+  },
+  {
+    quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself, £13.8k in the first month alone.",
+    author: "David Chen",
+    role: "Founder",
+    company: "Fake Plastic Chairs",
+    result: "£13,800 revenue, 387% ROAS",
+  },
+  {
+    quote: "We were skeptical about digital. They proved us wrong fast. £89k in new contracts and we're booked 4 months ahead.",
+    author: "Chris Evans",
+    role: "Director",
+    company: "C&M Evans Concrete",
+    result: "£89k in contracts",
+  },
+];
 
 const Testimonials = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
 
-  const testimonials = [
-    {
-      quote: "They didn't just run our ads, they transformed how we think about growth. Fully booked within two months.",
-      author: "Sarah Mitchell",
-      company: "Rejuvenating Touch",
-      result: "6 bookings in first month",
-    },
-    {
-      quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself, £13.8k in the first month alone.",
-      author: "David Chen",
-      company: "Fake Plastic Chairs",
-      result: "£13,800 revenue, 387% ROAS",
-    },
-    {
-      quote: "We were skeptical about investing heavily in digital, but they proved us wrong fast. £89k in new contracts.",
-      author: "Chris Evans",
-      company: "C&M Evans Concrete",
-      result: "£89k in contracts",
-    },
-  ];
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 200 };
+  const x = useSpring(mouseX, springConfig);
+  const y = useSpring(mouseY, springConfig);
+  const numberX = useTransform(x, [-200, 200], [-20, 20]);
+  const numberY = useTransform(y, [-200, 200], [-10, 10]);
+
+  const handleMouseMove = (e) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (rect) {
+      mouseX.set(e.clientX - rect.left - rect.width / 2);
+      mouseY.set(e.clientY - rect.top - rect.height / 2);
+    }
+  };
+
+  const goNext = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const goPrev = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
+  useEffect(() => {
+    const timer = setInterval(goNext, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = testimonials[activeIndex];
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-pure-black" />
-
-      <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+    <section className="relative py-24 md:py-32 overflow-hidden bg-pure-black">
+      <div className="container mx-auto px-6 lg:px-20 max-w-7xl relative z-10">
+        <div
+          ref={containerRef}
+          className="relative w-full max-w-5xl mx-auto"
+          onMouseMove={handleMouseMove}
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-white leading-tight">
-            From Skeptical Business Owners
-            <br />
-            <span className="text-liquid-gold">To Our Biggest Advocates</span>
-          </h2>
-          <TextReveal className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
-            They were drowning in marketing confusion. Now they're thriving.
-          </TextReveal>
-        </motion.div>
+          {/* Oversized index number */}
+          <motion.div
+            className="absolute -left-8 top-1/2 -translate-y-1/2 text-[20rem] md:text-[28rem] font-bold text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter"
+            style={{ x: numberX, y: numberY }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={activeIndex}
+                initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="block"
+              >
+                {String(activeIndex + 1).padStart(2, '0')}
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="group glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-liquid-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 rounded-3xl border border-liquid-gold/0 group-hover:border-liquid-gold/40 transition-all duration-500" />
+          {/* Main content - asymmetric layout */}
+          <div className="relative flex">
+            {/* Left column - vertical text */}
+            <div className="hidden md:flex flex-col items-center justify-center pr-16 border-r border-white/10">
+              <motion.span
+                className="text-xs font-mono text-white/40 tracking-widest uppercase"
+                style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                Testimonials
+              </motion.span>
 
-              <div className="relative z-10">
-                {/* Custom quote SVG */}
-                <div className="w-14 h-14 bg-liquid-gold rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-pure-black" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 15C4 12 6 8 10 6L11 8C8 9.5 7 11.5 7 13H10V18H4V15Z" fill="currentColor" />
-                    <path d="M14 15C14 12 16 8 20 6L21 8C18 9.5 17 11.5 17 13H20V18H14V15Z" fill="currentColor" />
-                  </svg>
-                </div>
+              {/* Vertical progress line */}
+              <div className="relative h-32 w-px bg-white/10 mt-8">
+                <motion.div
+                  className="absolute top-0 left-0 w-full bg-liquid-gold origin-top"
+                  animate={{ height: `${((activeIndex + 1) / testimonials.length) * 100}%` }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+            </div>
 
-                <p className="text-white/90 leading-relaxed italic mb-8 text-lg">
-                  "{testimonial.quote}"
-                </p>
+            {/* Center - main content */}
+            <div className="flex-1 md:pl-16 py-12">
+              {/* Company badge */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.4 }}
+                  className="mb-8"
+                >
+                  <span className="inline-flex items-center gap-2 text-xs font-mono text-white/50 border border-white/10 rounded-full px-3 py-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-liquid-gold" />
+                    {current.company}
+                  </span>
+                </motion.div>
+              </AnimatePresence>
 
-                <div className="border-t border-liquid-gold/20 pt-6">
-                  <p className="font-bold text-white mb-1">{testimonial.author}</p>
-                  <p className="text-sm text-chrome-silver/70 mb-3">{testimonial.company}</p>
-                  <p className="text-sm text-liquid-gold font-semibold font-mono">
-                    {testimonial.result}
-                  </p>
+              {/* Quote with word reveal */}
+              <div className="relative mb-12 min-h-[140px]">
+                <AnimatePresence mode="wait">
+                  <motion.blockquote
+                    key={activeIndex}
+                    className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-white leading-[1.15] tracking-tight"
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                  >
+                    {current.quote.split(' ').map((word, i) => (
+                      <motion.span
+                        key={i}
+                        className="inline-block mr-[0.3em]"
+                        variants={{
+                          hidden: { opacity: 0, y: 20, rotateX: 90 },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            rotateX: 0,
+                            transition: { duration: 0.5, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] },
+                          },
+                          exit: {
+                            opacity: 0,
+                            y: -10,
+                            transition: { duration: 0.2, delay: i * 0.015 },
+                          },
+                        }}
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
+                  </motion.blockquote>
+                </AnimatePresence>
+              </div>
+
+              {/* Result highlight */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  className="mb-8"
+                >
+                  <span className="text-sm text-liquid-gold font-mono font-semibold">
+                    {current.result}
+                  </span>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Author row */}
+              <div className="flex items-end justify-between">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    className="flex items-center gap-4"
+                  >
+                    <motion.div
+                      className="w-8 h-px bg-liquid-gold"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      style={{ originX: 0 }}
+                    />
+                    <div>
+                      <p className="text-base font-medium text-white">{current.author}</p>
+                      <p className="text-sm text-white/50">{current.role}</p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Navigation */}
+                <div className="flex items-center gap-4">
+                  <motion.button
+                    onClick={goPrev}
+                    className="group relative w-12 h-12 rounded-full border border-white/10 flex items-center justify-center overflow-hidden hover:border-liquid-gold/40 transition-colors"
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="relative z-10 text-white/60 group-hover:text-liquid-gold transition-colors">
+                      <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </motion.button>
+
+                  <motion.button
+                    onClick={goNext}
+                    className="group relative w-12 h-12 rounded-full border border-white/10 flex items-center justify-center overflow-hidden hover:border-liquid-gold/40 transition-colors"
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" className="relative z-10 text-white/60 group-hover:text-liquid-gold transition-colors">
+                      <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </motion.button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom ticker */}
+          <div className="absolute -bottom-16 left-0 right-0 overflow-hidden opacity-[0.06] pointer-events-none">
+            <motion.div
+              className="flex whitespace-nowrap text-5xl md:text-6xl font-bold tracking-tight text-white"
+              animate={{ x: [0, -1000] }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            >
+              {[...Array(10)].map((_, i) => (
+                <span key={i} className="mx-8">
+                  {testimonials.map(t => t.company).join(' \u2726 ')} \u2726
+                </span>
+              ))}
             </motion.div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

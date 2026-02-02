@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import ASMRBackground from './ASMRBackground';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -101,27 +102,22 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center bg-pure-black overflow-hidden">
-      {/* Dynamic ambient background with parallax */}
+      {/* ASMR interactive particle background */}
       <div className="absolute inset-0">
+        <ASMRBackground />
+        {/* Ambient gold glow orbs layered on top */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-liquid-gold/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-liquid-gold/10 rounded-full blur-3xl pointer-events-none"
           style={{
             x: mousePosition.x,
             y: mousePosition.y,
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-liquid-gold/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-liquid-gold/5 rounded-full blur-3xl pointer-events-none"
           style={{
             x: mousePosition.x * -0.5,
             y: mousePosition.y * -0.5,
-          }}
-        />
-        {/* Grid overlay */}
-        <div className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
-            backgroundSize: '100px 100px'
           }}
         />
       </div>

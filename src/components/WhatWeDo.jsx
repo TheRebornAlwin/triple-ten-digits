@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TextReveal from './TextReveal';
+import InfiniteGrid from './InfiniteGrid';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -148,7 +149,8 @@ const WhatWeDo = () => {
 
   return (
     <section ref={ref} className="relative py-16 sm:py-24 md:py-32 bg-pure-black overflow-hidden">
-      {/* Subtle background accent */}
+      {/* Interactive infinite grid background */}
+      <InfiniteGrid />
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-8xl relative z-10">
