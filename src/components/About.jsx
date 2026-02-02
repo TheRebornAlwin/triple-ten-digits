@@ -1,9 +1,19 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import TextReveal from './TextReveal';
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const lines = [
+    { text: "Brilliant business owners were getting screwed by agencies.", style: "text-white/60" },
+    { text: "Paying thousands for copy-paste templates.", style: "text-white/60" },
+    { text: "Reports full of numbers that meant nothing.", style: "text-white/60" },
+    { text: "We said: enough.", style: "text-liquid-gold text-3xl md:text-4xl" },
+    { text: "No long-term contracts.", style: "text-white" },
+    { text: "No jargon. No hiding.", style: "text-white" },
+    { text: "If we can't transform your business, we'll tell you upfront.", style: "text-white" },
+    { text: "Your growth is our portfolio.", style: "text-liquid-gold text-3xl md:text-4xl" },
+  ];
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
@@ -26,43 +36,39 @@ const About = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-8 text-lg leading-relaxed">
-          <TextReveal className="text-white/70 font-light text-xl" start="top 85%" end="top 45%">
-            We started this because we kept meeting brilliant business owners, people exceptional at their craft,
-            who were getting absolutely screwed by marketing agencies. Paying thousands for "strategies" that
-            were just templates. Getting reports full of metrics that meant nothing.
-          </TextReveal>
-
-          <TextReveal className="text-white font-light text-2xl" start="top 85%" end="top 45%">
-            These business owners didn't need another vendor. They needed a partner who actually gave a damn
-            about their success. Someone who would tell them the truth, even when it's uncomfortable.
-          </TextReveal>
-
-          <TextReveal className="text-white/70 font-light text-xl" start="top 85%" end="top 45%">
-            So we built this agency differently. No long-term contracts trapping you. No jargon hiding
-            incompetence. No taking every client who can pay. Just honest partnership with businesses
-            we believe we can genuinely transform.
-          </TextReveal>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="glass-card border border-liquid-gold/30 p-12 rounded-3xl mt-12"
-          >
-            <p className="text-3xl md:text-4xl font-serif font-light text-white mb-6">
-              Here's our promise:
-            </p>
-            <TextReveal className="text-white/80 text-xl font-light leading-relaxed" start="top 85%" end="top 50%">
-              We only succeed when you succeed. If you're not getting customers, not seeing ROI, not growing,
-              we've failed. That's why we're selective about who we work with. Your success literally becomes our portfolio.
-            </TextReveal>
-          </motion.div>
-
-          <TextReveal className="text-white font-light text-2xl text-center pt-12" start="top 90%" end="top 60%">
-            If you're ready to stop struggling with marketing and start growing, let's talk.
-          </TextReveal>
+        {/* Line-by-line punchy reveals */}
+        <div className="space-y-6 max-w-3xl mx-auto text-center">
+          {lines.map((line, index) => (
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 25 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: 0.2 + index * 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`font-serif font-light text-xl md:text-2xl leading-relaxed ${line.style}`}
+            >
+              {line.text}
+            </motion.p>
+          ))}
         </div>
+
+        {/* Promise card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="glass-card border border-liquid-gold/30 p-12 rounded-3xl mt-16 text-center max-w-3xl mx-auto"
+        >
+          <p className="text-3xl md:text-4xl font-serif font-light text-white mb-4">
+            We only win when you win.
+          </p>
+          <p className="text-lg text-white/50 font-light">
+            Period.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

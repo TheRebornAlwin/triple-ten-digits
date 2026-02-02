@@ -29,7 +29,7 @@ function App() {
         <Hero />
         <TrustBar />
         <WhoThisIsFor />
-        <BigMarquee text="GROWTH \u00B7 RESULTS \u00B7 REVENUE" direction="left" />
+        <BigMarquee text="GROWTH \u2726 RESULTS \u2726 REVENUE" direction="left" />
         <WhatWeDo />
         <HowWereDifferent />
         <Portfolio />

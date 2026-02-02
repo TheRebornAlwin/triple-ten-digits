@@ -5,7 +5,7 @@ import SplitType from 'split-type';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextReveal = ({ children, className = '', as: Tag = 'p', start = 'top 80%', end = 'top 30%' }) => {
+const TextReveal = ({ children, className = '', as: Tag = 'p', start = 'top 85%', end = 'top 65%' }) => {
   const textRef = useRef(null);
 
   useEffect(() => {
@@ -14,18 +14,18 @@ const TextReveal = ({ children, className = '', as: Tag = 'p', start = 'top 80%'
 
     const split = new SplitType(el, { types: 'words' });
 
-    gsap.set(split.words, { opacity: 0.15 });
+    gsap.set(split.words, { opacity: 0.12 });
 
     gsap.to(split.words, {
       opacity: 1,
-      duration: 0.5,
-      stagger: 0.04,
-      ease: 'power2.out',
+      duration: 0.3,
+      stagger: 0.02,
+      ease: 'power1.out',
       scrollTrigger: {
         trigger: el,
         start,
         end,
-        scrub: 0.5,
+        scrub: 0.3,
       },
     });
 
