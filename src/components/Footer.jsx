@@ -28,7 +28,7 @@ const Footer = () => {
             <a href="#process" className="hover:text-white transition-colors duration-300">
               Our Process
             </a>
-            <a href="#contact" className="hover:text-white transition-colors duration-300">
+            <a href="#contact" onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }} className="hover:text-white transition-colors duration-300 cursor-pointer">
               Book a Call
             </a>
           </div>

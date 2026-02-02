@@ -32,10 +32,9 @@ const CTA = () => {
 
           <div className="pt-8">
             <a
-              href="https://calendly.com/your-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-12 py-6 bg-white text-pure-black text-base font-medium rounded-full transition-all duration-300 hover:bg-white/90 hover:gap-4 hover:shadow-2xl"
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
+              className="inline-flex items-center gap-3 px-12 py-6 bg-white text-pure-black text-base font-medium rounded-full transition-all duration-300 hover:bg-white/90 hover:gap-4 hover:shadow-2xl cursor-pointer"
             >
               Book Your Strategy Call
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">

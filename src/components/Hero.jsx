@@ -171,6 +171,7 @@ const Hero = () => {
             <a
               ref={ctaRef}
               href="#contact"
+              onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
               className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-5 sm:py-6 bg-liquid-gold text-pure-black text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:shadow-[0_20px_60px_rgba(212,175,55,0.6)] hover:bg-liquid-gold/90 cursor-pointer"
             >
               <span>Book a Strategy Call</span>

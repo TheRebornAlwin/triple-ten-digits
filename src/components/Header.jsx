@@ -80,6 +80,7 @@ const Header = () => {
         <a
           ref={ctaRef}
           href="#contact"
+          onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
           className="group relative px-7 py-3 text-sm font-semibold text-pure-black bg-liquid-gold rounded-full transition-all duration-300 hover:shadow-[0_15px_40px_rgba(212,175,55,0.6)] hover:bg-liquid-gold/90 cursor-pointer"
         >
           <span className="relative z-10">Book a Call</span>

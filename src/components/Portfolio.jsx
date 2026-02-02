@@ -151,7 +151,8 @@ const Portfolio = () => {
               </p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-liquid-gold text-pure-black text-sm font-semibold rounded-full hover:shadow-glow-gold transition-all duration-300"
+                onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-liquid-gold text-pure-black text-sm font-semibold rounded-full hover:shadow-glow-gold transition-all duration-300 cursor-pointer"
               >
                 Book a Call
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
