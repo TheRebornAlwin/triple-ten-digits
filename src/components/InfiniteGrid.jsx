@@ -54,8 +54,8 @@ const InfiniteGrid = ({ className = '' }) => {
       onMouseMove={handleMouseMove}
       className={`absolute inset-0 overflow-hidden ${className}`}
     >
-      {/* Base grid - very subtle */}
-      <div className="absolute inset-0 opacity-[0.04]">
+      {/* Base grid - visible */}
+      <div className="absolute inset-0 opacity-[0.15]">
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
       </div>
 
