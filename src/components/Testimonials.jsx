@@ -34,7 +34,7 @@ const testimonials = [
     quote: "They positioned us as the premium option in a crowded market. The Meta ads are printing money.",
     author: "Michael Torres",
     role: "Director",
-    company: "Electromaine",
+    company: "Electromain",
     result: "$62k in new projects",
   },
 ];

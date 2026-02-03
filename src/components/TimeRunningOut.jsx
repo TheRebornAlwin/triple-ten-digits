@@ -68,12 +68,12 @@ const TimeRunningOut = () => {
             </motion.div>
           </div>
 
-          {/* Right - Orbital clock (much bigger) */}
+          {/* Right - Orbital clock (much bigger, shifted left on desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-center justify-center lg:mr-8"
+            className="flex flex-col items-center justify-center lg:-ml-16 xl:-ml-24"
           >
             <div className="scale-[1.0] sm:scale-[1.2] md:scale-[1.4] lg:scale-[1.8] xl:scale-[2.0]">
               <OrbitalClock />

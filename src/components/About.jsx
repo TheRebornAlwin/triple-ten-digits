@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import InfiniteGrid from './InfiniteGrid';
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,6 +19,9 @@ const About = () => {
   return (
     <section ref={ref} className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-pure-black" />
+
+      {/* Infinite grid background */}
+      <InfiniteGrid />
 
       <div className="absolute top-1/2 -left-24 md:-left-48 w-48 md:w-96 h-48 md:h-96 bg-liquid-gold/5 rounded-full blur-3xl" />
       <div className="absolute top-1/2 -right-24 md:-right-48 w-48 md:w-96 h-48 md:h-96 bg-liquid-gold/10 rounded-full blur-3xl" />
@@ -60,11 +64,8 @@ const About = () => {
           transition={{ duration: 0.5, delay: 1.2 }}
           className="glass-card border border-liquid-gold/30 p-8 md:p-10 lg:p-12 rounded-2xl md:rounded-3xl mt-12 md:mt-16 text-center max-w-3xl mx-auto"
         >
-          <p className="text-xl sm:text-2xl md:text-3xl font-serif font-light text-white mb-3 md:mb-4">
+          <p className="text-xl sm:text-2xl md:text-3xl font-serif font-light text-white">
             We only win when you win.
-          </p>
-          <p className="text-base md:text-lg text-white/60 font-light">
-            That's not marketing speak. That's how we run this.
           </p>
         </motion.div>
       </div>

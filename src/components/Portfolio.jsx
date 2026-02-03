@@ -54,7 +54,7 @@ const Portfolio = () => {
       gradient: 'from-liquid-gold/20',
     },
     {
-      client: 'Electromaine',
+      client: 'Electromain',
       industry: 'Luxury Electrical',
       challenge: 'High-end services but zero online visibility',
       solution: 'Meta Ads + social media overhaul + premium landing page',
@@ -94,10 +94,10 @@ const Portfolio = () => {
     if (!section || !track) return;
 
     // Calculate exact scroll distance needed
-    const cardWidth = 420; // Smaller cards
-    const gap = 24;
-    const totalCards = caseStudies.length + 1; // +1 for CTA card
-    const trackWidth = (cardWidth * totalCards) + (gap * (totalCards - 1)) + 80; // padding
+    const cardWidth = 340; // Compact cards
+    const ctaWidth = 280;
+    const gap = 16;
+    const trackWidth = (cardWidth * caseStudies.length) + ctaWidth + (gap * caseStudies.length) + 80; // padding
     const scrollDistance = trackWidth - window.innerWidth + 100;
 
     const st = ScrollTrigger.create({
@@ -198,67 +198,65 @@ const Portfolio = () => {
     );
   }
 
-  // Desktop version - horizontal scroll
+  // Desktop version - horizontal scroll with compact cards
   return (
     <section id="portfolio" ref={sectionRef} className="relative overflow-hidden bg-deep-charcoal">
-      <div ref={ref} className="min-h-screen flex flex-col justify-center">
-        {/* Header */}
-        <div className="px-6 lg:px-20 pt-20 pb-8">
+      <div ref={ref} className="h-screen flex flex-col">
+        {/* Header - compact */}
+        <div className="px-6 lg:px-20 pt-8 pb-4 flex-shrink-0">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-4 mb-3">
               <span className="text-xs text-liquid-gold uppercase tracking-[0.3em] font-mono">Case Studies</span>
               <div className="h-px flex-1 bg-gradient-to-r from-liquid-gold/30 to-transparent" />
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight">
-              Real Businesses Like Yours.
-              <br />
-              <span className="text-liquid-gold">Real Results That Matter.</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-white leading-tight">
+              Real Businesses. <span className="text-liquid-gold">Real Results.</span>
             </h2>
           </motion.div>
         </div>
 
-        {/* Horizontal scroll track */}
-        <div ref={trackRef} className="flex gap-6 px-6 lg:px-20 pb-20 pt-4" style={{ width: 'max-content' }}>
+        {/* Horizontal scroll track - fills remaining space */}
+        <div ref={trackRef} className="flex gap-4 px-6 lg:px-20 pb-8 items-stretch flex-1" style={{ width: 'max-content' }}>
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="group relative glass-card rounded-3xl p-8 lg:p-10 overflow-hidden flex-shrink-0"
-              style={{ width: '420px' }}
+              className="group relative glass-card rounded-2xl p-5 lg:p-6 overflow-hidden flex-shrink-0 flex flex-col"
+              style={{ width: '340px', maxHeight: 'calc(100vh - 160px)' }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className="absolute inset-0 rounded-3xl border border-liquid-gold/0 group-hover:border-liquid-gold/30 transition-all duration-500" />
+              <div className="absolute inset-0 rounded-2xl border border-liquid-gold/0 group-hover:border-liquid-gold/30 transition-all duration-500" />
 
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="mb-auto">
-                  <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-2 group-hover:text-liquid-gold transition-colors duration-300">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex-shrink-0">
+                  <h3 className="text-xl lg:text-2xl font-serif font-bold mb-1 group-hover:text-liquid-gold transition-colors duration-300">
                     {study.client}
                   </h3>
-                  <p className="text-liquid-gold text-xs uppercase tracking-widest font-mono mb-6">
+                  <p className="text-liquid-gold text-[10px] uppercase tracking-widest font-mono mb-3">
                     {study.industry}
                   </p>
+                </div>
 
-                  <div className="space-y-3 text-chrome-silver/80 text-sm mb-6">
-                    <div>
-                      <p className="text-xs uppercase tracking-wide mb-1 font-mono text-white/40">Challenge</p>
-                      <p>{study.challenge}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wide mb-1 font-mono text-white/40">Solution</p>
-                      <p>{study.solution}</p>
-                    </div>
+                <div className="space-y-2 text-chrome-silver/80 text-xs mb-3 flex-shrink-0">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wide mb-0.5 font-mono text-white/40">Challenge</p>
+                    <p className="leading-snug">{study.challenge}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wide mb-0.5 font-mono text-white/40">Solution</p>
+                    <p className="leading-snug">{study.solution}</p>
                   </div>
                 </div>
 
-                <div className="border-t border-liquid-gold/20 pt-4">
-                  <p className="text-xs text-liquid-gold uppercase tracking-wide mb-3 font-mono">Results</p>
-                  <ul className="space-y-1.5">
+                <div className="border-t border-liquid-gold/20 pt-3 mt-auto">
+                  <p className="text-[10px] text-liquid-gold uppercase tracking-wide mb-2 font-mono">Results</p>
+                  <ul className="space-y-1">
                     {study.results.map((result, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <svg className="w-4 h-4 text-liquid-gold flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
+                      <li key={i} className="flex items-start gap-1.5 text-xs">
+                        <svg className="w-3.5 h-3.5 text-liquid-gold flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
                           <path d="M6 10L9 13L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <span className="text-white font-medium">{result}</span>
@@ -272,17 +270,17 @@ const Portfolio = () => {
 
           {/* CTA card at end */}
           <div
-            className="flex-shrink-0 rounded-3xl p-10 flex items-center justify-center glass-gold border border-liquid-gold/30"
-            style={{ width: '320px' }}
+            className="flex-shrink-0 rounded-2xl p-6 flex items-center justify-center glass-gold border border-liquid-gold/30"
+            style={{ width: '280px', maxHeight: 'calc(100vh - 160px)' }}
           >
             <div className="text-center">
-              <p className="text-2xl font-serif font-light text-white mb-6">
+              <p className="text-xl font-serif font-light text-white mb-4">
                 Your business <br /><span className="text-liquid-gold">could be next.</span>
               </p>
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-liquid-gold text-pure-black text-sm font-semibold rounded-full hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-liquid-gold text-pure-black text-sm font-semibold rounded-full hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] transition-all duration-300 cursor-pointer"
               >
                 Book a Call
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
