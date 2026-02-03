@@ -1,54 +1,23 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const ctaRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
-
-    // Magnetic CTA effect
-    const btn = ctaRef.current;
-    if (btn) {
-      const handleButtonHover = (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        gsap.to(btn, {
-          x: x * 0.4,
-          y: y * 0.4,
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      };
-
-      const handleButtonLeave = () => {
-        gsap.to(btn, {
-          x: 0,
-          y: 0,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.5)'
-        });
-      };
-
-      btn.addEventListener('mousemove', handleButtonHover);
-      btn.addEventListener('mouseleave', handleButtonLeave);
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        btn.removeEventListener('mousemove', handleButtonHover);
-        btn.removeEventListener('mouseleave', handleButtonLeave);
-      };
-    }
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navLinks = [
+    { label: 'What We Do', href: '#services' },
+    { label: 'Case Studies', href: '#portfolio' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Our Process', href: '#process' },
+  ];
 
   return (
     <motion.header
@@ -62,9 +31,9 @@ const Header = () => {
       }`}
     >
       <nav className="container mx-auto px-8 lg:px-20 py-6 flex items-center justify-between max-w-8xl">
-        {/* Logo with subtle hover effect */}
+        {/* Logo */}
         <motion.a
-          href="#"
+          href="/"
           className="relative z-10 group"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
@@ -76,14 +45,30 @@ const Header = () => {
           />
         </motion.a>
 
-        {/* Magnetic CTA */}
+        {/* Nav links - hidden on mobile */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm text-white/50 hover:text-white transition-colors duration-300"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* CTA */}
         <a
-          ref={ctaRef}
           href="#contact"
           onClick={(e) => { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/alwinchen-business/discovery-call' }); }}
-          className="group relative px-7 py-3 text-sm font-semibold text-pure-black bg-liquid-gold rounded-full transition-all duration-300 hover:shadow-[0_15px_40px_rgba(212,175,55,0.6)] hover:bg-liquid-gold/90 cursor-pointer"
+          className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold text-pure-black bg-liquid-gold rounded-full transition-all duration-300 hover:shadow-[0_8px_24px_rgba(212,175,55,0.4)] hover:bg-liquid-gold/90 cursor-pointer"
         >
-          <span className="relative z-10">Book a Call</span>
+          Book a Call
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M13 6L19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </a>
       </nav>
     </motion.header>

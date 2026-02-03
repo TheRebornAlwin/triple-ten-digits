@@ -1,104 +1,117 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import TextReveal from './TextReveal';
 
 const HowWereDifferent = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const differences = [
-    {
-      them: "Sell you a fixed package of services",
-      us: "Do whatever your business actually needs to grow",
-    },
-    {
-      them: "Optimize for clicks and impressions",
-      us: "Obsess over revenue and real business outcomes",
-    },
-    {
-      them: "Send monthly reports you don't understand",
-      us: "Become strategic partners you can't imagine working without",
-    },
-    {
-      them: "Take every client who can pay",
-      us: "Work with businesses we genuinely believe we can transform",
-    },
+  const comparisons = [
+    { them: "Sell you a fixed package of services", us: "Do whatever your business actually needs to grow" },
+    { them: "Optimize for clicks and impressions", us: "Obsess over revenue and real business outcomes" },
+    { them: "Send monthly reports you don't understand", us: "Become strategic partners you can't imagine working without" },
+    { them: "Take every client who can pay", us: "Only work with businesses we genuinely believe we can transform" },
+    { them: "Disappear after the contract is signed", us: "Stay in your corner, constantly pushing for more" },
   ];
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
+    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
-
-      {/* Gold gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-8xl">
+      <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-display font-serif font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
             Typical Agencies vs.
             <span className="text-gradient-flow"> Us</span>
           </h2>
-          <TextReveal className="text-xl md:text-2xl text-chrome-silver/70 max-w-4xl mx-auto">
-            We're not your typical marketing agency. Here's exactly how we're different.
-          </TextReveal>
+          <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto">
+            Not all agencies are the same. Here's what makes us different.
+          </p>
         </motion.div>
 
-        <div className="space-y-8 max-w-6xl mx-auto">
-          {differences.map((item, index) => (
-            <div
-              key={index}
-              className="grid md:grid-cols-2 gap-6 p-8 rounded-3xl glass-card hover:scale-[1.01] transition-all duration-300"
-            >
-              {/* Them */}
-              <div className="flex items-start gap-4 p-6 rounded-2xl bg-elevated-surface/50 border border-white/5">
-                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.3" />
+        {/* Side-by-side comparison table */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-5xl mx-auto"
+        >
+          {/* Them column */}
+          <div className="rounded-3xl glass-card p-8 lg:p-10 border border-white/5">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none">
+                  <path d="M8 8L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M16 8L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-mono text-white/50 uppercase tracking-wide">Typical Agencies</h3>
+            </div>
+            <ul className="space-y-5">
+              {comparisons.map((item, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="flex items-start gap-3"
+                >
+                  <svg className="w-5 h-5 text-red-500/60 flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none">
                     <path d="M8 8L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                     <path d="M16 8L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-chrome-silver/60 uppercase tracking-wide mb-2 font-mono">Typical Agencies</p>
-                  <p className="text-white/50 text-lg">{item.them}</p>
-                </div>
-              </div>
+                  <span className="text-white/50 text-lg leading-relaxed">{item.them}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Us */}
-              <div className="flex items-start gap-4 p-6 rounded-2xl glass-gold border border-liquid-gold/30">
-                <div className="w-10 h-10 rounded-full bg-liquid-gold/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-liquid-gold" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.3" />
-                    <path d="M7 12L10.5 15.5L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    {/* Small sparkle accent */}
-                    <circle cx="17" cy="8" r="1.5" fill="currentColor" opacity="0.5" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-gradient-gold uppercase tracking-wide mb-2 font-mono font-semibold">We</p>
-                  <p className="text-white font-medium text-lg">{item.us}</p>
-                </div>
+          {/* Us column */}
+          <div className="rounded-3xl glass-gold p-8 lg:p-10 border border-liquid-gold/30">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-liquid-gold/20 flex items-center justify-center">
+                <svg className="w-5 h-5 text-liquid-gold" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 12L10.5 15.5L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
+              <h3 className="text-xl font-mono text-liquid-gold uppercase tracking-wide font-semibold">Us</h3>
             </div>
-          ))}
-        </div>
+            <ul className="space-y-5">
+              {comparisons.map((item, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="flex items-start gap-3"
+                >
+                  <svg className="w-5 h-5 text-liquid-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 12L10.5 15.5L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-white font-medium text-lg leading-relaxed">{item.us}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
 
+        {/* Bottom line */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-20 p-12 rounded-3xl glass-gold max-w-4xl mx-auto"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-16 p-10 rounded-3xl glass-gold max-w-4xl mx-auto"
         >
-          <p className="text-3xl font-serif font-bold text-white mb-4">
+          <p className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
             The bottom line?
           </p>
-          <TextReveal className="text-xl text-chrome-silver/90 leading-relaxed" start="top 85%" end="top 55%">
+          <p className="text-xl text-white/80 leading-relaxed">
             We're strategic partners, not vendors. We care about your business like it's our own, because your success is our success.
-          </TextReveal>
+          </p>
         </motion.div>
       </div>
     </section>

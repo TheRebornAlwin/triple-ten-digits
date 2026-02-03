@@ -229,9 +229,9 @@ const Testimonials = () => {
           </div>
 
           {/* Bottom ticker */}
-          <div className="absolute -bottom-16 left-0 right-0 overflow-hidden opacity-[0.06] pointer-events-none">
+          <div className="absolute -bottom-16 left-0 right-0 overflow-hidden opacity-[0.15] pointer-events-none">
             <motion.div
-              className="flex whitespace-nowrap text-5xl md:text-6xl font-bold tracking-tight text-white"
+              className="flex whitespace-nowrap text-5xl md:text-6xl font-bold tracking-tight text-white/80"
               animate={{ x: [0, -1000] }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             >

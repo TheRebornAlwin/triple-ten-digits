@@ -8,43 +8,41 @@ const Process = () => {
     {
       number: '01',
       title: 'Discovery Call',
-      description: "We dig deep into your business, goals, and challenges. No sales pitch, just genuine conversation.",
+      description: "We hop on a call and dig into your business — what's working, what's not, where you want to go. No sales pitch, just a real conversation.",
     },
     {
       number: '02',
-      title: 'Strategic Planning',
-      description: "Custom growth strategy tailored to your business. Not a template, but a plan designed specifically for you.",
+      title: 'Strategy',
+      description: "We put together a custom plan based on your actual situation, not some template we use for everyone. You'll know exactly what we're doing and why.",
     },
     {
       number: '03',
       title: 'Execution',
-      description: 'We handle everything. You focus on your business while we obsess over driving results.',
+      description: "We get to work. You focus on running your business while we handle the marketing. We keep you in the loop without drowning you in updates.",
     },
     {
       number: '04',
-      title: 'Growth & Optimization',
-      description: "Continuously test, optimize, and scale what works. Your growth doesn't plateau.",
+      title: 'Growth',
+      description: "We track what's working, cut what's not, and keep pushing for better results. Your growth doesn't plateau because we don't get complacent.",
     },
   ];
 
   return (
-    <section ref={ref} className="relative py-32 overflow-hidden">
+    <section id="process" ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
 
       <div className="container mx-auto px-6 lg:px-20 relative z-10 max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light mb-6 text-white leading-tight">
-            How We Work
-            <br />
-            <span className="text-white/40">(Without Making You a Marketer)</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-6 leading-tight">
+            <span className="text-liquid-gold">How We Work</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/50 max-w-4xl mx-auto font-light leading-relaxed">
-            Simple, transparent, designed to get you results while you focus on your business.
+          <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed">
+            Simple and straightforward. No complexity for complexity's sake.
           </p>
         </motion.div>
 
@@ -52,9 +50,9 @@ const Process = () => {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -60 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative flex gap-8 items-start"
             >
               {index < steps.length - 1 && (
@@ -66,30 +64,16 @@ const Process = () => {
               </div>
 
               <div className="flex-1 glass-card rounded-3xl p-8 lg:p-10 hover:scale-[1.02] transition-all duration-300">
-                <h3 className="text-3xl font-serif font-bold mb-4 text-gradient-flow">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-liquid-gold">
                   {step.title}
                 </h3>
-                <p className="text-chrome-silver/80 text-lg leading-relaxed">
+                <p className="text-white/70 text-lg leading-relaxed">
                   {step.description}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16 p-10 rounded-3xl glass-gold max-w-4xl mx-auto"
-        >
-          <p className="text-2xl font-semibold text-white mb-2">
-            You won't have to become a marketing expert.
-          </p>
-          <p className="text-lg text-chrome-silver/90">
-            We handle everything so you can focus on what you do best.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

@@ -51,14 +51,15 @@ const Portfolio = () => {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const totalScroll = track.scrollWidth - window.innerWidth;
+    // Add extra space so the last cards are fully visible
+    const totalScroll = track.scrollWidth - window.innerWidth + 80;
 
     const st = ScrollTrigger.create({
       trigger: section,
       start: 'top top',
-      end: () => `+=${totalScroll}`,
+      end: () => `+=${totalScroll * 1.2}`,
       pin: true,
-      scrub: 1,
+      scrub: 0.8,
       animation: gsap.to(track, {
         x: -totalScroll,
         ease: 'none',
@@ -96,7 +97,7 @@ const Portfolio = () => {
             <div
               key={index}
               className="group relative glass-card rounded-3xl p-10 lg:p-12 overflow-hidden flex-shrink-0"
-              style={{ width: 'min(600px, 80vw)' }}
+              style={{ width: 'min(520px, 75vw)' }}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
               <div className="absolute inset-0 rounded-3xl border border-liquid-gold/0 group-hover:border-liquid-gold/30 transition-all duration-500" />
