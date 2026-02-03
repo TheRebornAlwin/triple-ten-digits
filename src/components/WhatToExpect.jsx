@@ -6,8 +6,8 @@ const WhatToExpect = () => {
 
   const expectations = [
     {
-      title: "Honest Feedback",
-      description: "We're not going to tell you what you want to hear. If your pricing is off, your offer needs work, or something isn't going to fly, we'll say so. That's how we actually help.",
+      title: "Straight Talk",
+      description: "Your pricing is weird? We'll tell you. Your offer isn't working? You'll hear it from us. We're not here to make you feel good, we're here to help you grow.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <path d="M6 6H26C27.1 6 28 6.9 28 8V20C28 21.1 27.1 22 26 22H18L12 28V22H6C4.9 22 4 21.1 4 20V8C4 6.9 4.9 6 6 6Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -16,8 +16,8 @@ const WhatToExpect = () => {
       ),
     },
     {
-      title: "Plain English",
-      description: "No confusing marketing speak, no acronyms thrown around to sound smart. We explain everything so you actually understand what's happening with your money.",
+      title: "No Marketing Speak",
+      description: "We won't throw acronyms at you to sound clever. You'll know exactly what we're doing, why we're doing it, and where your money is going. Always.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <rect x="6" y="4" width="20" height="24" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -30,8 +30,8 @@ const WhatToExpect = () => {
       ),
     },
     {
-      title: "Actual Partnership",
-      description: "You're not a ticket number to us. We get invested in your business because when you grow, we grow. It's that simple.",
+      title: "We're In This Together",
+      description: "You're not a ticket number. When your revenue goes up, we celebrate. When something isn't working, we lose sleep over it too. That's how this works.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <path d="M4 16L10 10L14 14L18 10L22 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -43,8 +43,8 @@ const WhatToExpect = () => {
       ),
     },
     {
-      title: "Results You Can See",
-      description: "Revenue, bookings, leads, sales — the stuff that actually matters to your business. Not impressions and click-through rates that mean nothing to your bank account.",
+      title: "Numbers That Matter",
+      description: "Revenue. Bookings. Leads. Sales. The stuff you actually care about. We don't hide behind impressions and click rates because those don't pay your bills.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <rect x="4" y="6" width="24" height="20" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -57,8 +57,8 @@ const WhatToExpect = () => {
       ),
     },
     {
-      title: "Month-to-Month",
-      description: "No long contracts locking you in. If we're not delivering, you can leave. We earn your business every single month — that's how it should be.",
+      title: "No Lock-In Contracts",
+      description: "Month to month. If we're not getting you results, you can walk. Simple as that. We have to earn your business every single month.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <rect x="8" y="14" width="16" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -69,8 +69,8 @@ const WhatToExpect = () => {
       ),
     },
     {
-      title: "We Say No",
-      description: "If we don't think we can genuinely help your business, we'll tell you upfront. We only take on clients we know we can get results for.",
+      title: "We're Picky",
+      description: "We don't take every client who knocks. If we don't genuinely think we can grow your business, we'll say so upfront. Saves us both time and money.",
       icon: (
         <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
           <path d="M10 6H22V12C22 15.3 19.3 18 16 18C12.7 18 10 15.3 10 12V6Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -85,51 +85,51 @@ const WhatToExpect = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-deep-charcoal" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-8 lg:px-20 max-w-8xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-20 max-w-8xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
             What Working With Us
             <br />
             <span className="text-liquid-gold">Actually Looks Like</span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto font-light leading-relaxed">
-            You've probably been burned before. Here's what you can expect from us.
+          <p className="text-lg md:text-xl lg:text-2xl text-white/60 max-w-2xl mx-auto font-light leading-relaxed px-4">
+            Been burned by agencies before? Here's what's different with us.
           </p>
         </motion.div>
 
         {/* Expectations grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {expectations.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
-              className="group glass-card rounded-3xl p-8 lg:p-10 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden"
+              className="group glass-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-liquid-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 rounded-3xl border border-white/5 group-hover:border-liquid-gold/40 transition-all duration-500" />
+              <div className="absolute inset-0 rounded-2xl md:rounded-3xl border border-white/5 group-hover:border-liquid-gold/40 transition-all duration-500" />
 
               <div className="relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-liquid-gold/10 flex items-center justify-center text-liquid-gold mb-6 group-hover:bg-liquid-gold/20 transition-colors duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-liquid-gold/10 flex items-center justify-center text-liquid-gold mb-4 md:mb-6 group-hover:bg-liquid-gold/20 transition-colors duration-300">
                   {item.icon}
                 </div>
 
-                <h3 className="text-2xl font-serif font-light text-white mb-4 leading-tight group-hover:text-liquid-gold transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-serif font-light text-white mb-3 md:mb-4 leading-tight group-hover:text-liquid-gold transition-colors duration-300">
                   {item.title}
                 </h3>
 
-                <p className="text-base text-white/70 leading-relaxed font-light">
+                <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">
                   {item.description}
                 </p>
               </div>
