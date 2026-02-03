@@ -20,7 +20,7 @@ const TimeRunningOut = () => {
       <div className="absolute top-1/2 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-liquid-gold/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-[1fr,auto] gap-10 md:gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-8 items-center">
           {/* Left - Copy */}
           <div className="space-y-4 md:space-y-6">
             <motion.h2
@@ -68,12 +68,12 @@ const TimeRunningOut = () => {
             </motion.div>
           </div>
 
-          {/* Right - Orbital clock (much bigger, shifted left on desktop) */}
+          {/* Right - Orbital clock (shifted left on desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-center justify-center lg:-ml-16 xl:-ml-24"
+            className="flex flex-col items-center lg:items-start justify-center lg:-translate-x-16 xl:-translate-x-24"
           >
             <div className="scale-[1.0] sm:scale-[1.2] md:scale-[1.4] lg:scale-[1.8] xl:scale-[2.0]">
               <OrbitalClock />
