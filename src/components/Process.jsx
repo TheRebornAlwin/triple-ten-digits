@@ -38,7 +38,7 @@ const Process = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-4 md:mb-6 leading-tight">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-4 md:mb-6 leading-tight">
             <span className="text-liquid-gold">How We Work</span>
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-white/60 max-w-2xl mx-auto font-light leading-relaxed px-4">
@@ -67,7 +67,7 @@ const Process = () => {
 
               {/* Content card */}
               <div className="flex-1 glass-card rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 hover:scale-[1.01] transition-all duration-300">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 md:mb-4 text-liquid-gold">
+                <h3 className="text-2xl md:text-2xl lg:text-3xl font-serif font-bold mb-2 md:mb-4 text-liquid-gold">
                   {step.title}
                 </h3>
                 <p className="text-white/70 text-sm md:text-base lg:text-lg leading-relaxed">

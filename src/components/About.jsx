@@ -33,7 +33,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-8 text-white leading-tight">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-8 text-white leading-tight">
             Why We Built This
           </h2>
         </motion.div>

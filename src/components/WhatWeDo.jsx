@@ -167,7 +167,7 @@ const WhatWeDo = () => {
             <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/10" />
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-center mb-4 md:mb-6 text-white leading-tight px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-center mb-4 md:mb-6 text-white leading-tight px-2">
             Everything You Need
             <br />
             <span className="text-white/40">(When It Makes Sense)</span>
@@ -205,7 +205,7 @@ const WhatWeDo = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-light text-white leading-tight group-hover:text-liquid-gold transition-colors duration-300 pr-8 md:pr-0">
+                <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-light text-white leading-tight group-hover:text-liquid-gold transition-colors duration-300 pr-8 md:pr-0">
                   {service.title}
                 </h3>
 

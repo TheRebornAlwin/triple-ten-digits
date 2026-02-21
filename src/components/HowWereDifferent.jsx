@@ -24,7 +24,7 @@ const HowWereDifferent = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 px-2">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 px-2">
             Typical Agencies vs.
             <span className="text-gradient-flow"> Us</span>
           </h2>

@@ -61,7 +61,7 @@ const Portfolio = () => {
             <span className="text-xs text-liquid-gold uppercase tracking-[0.3em] font-mono">Case Studies</span>
             <div className="h-px flex-1 bg-gradient-to-r from-liquid-gold/30 to-transparent" />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight">
             Real Businesses.
             <br />
             <span className="text-liquid-gold">Real Results.</span>

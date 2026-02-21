@@ -19,7 +19,7 @@ const CTA = () => {
           transition={{ duration: 0.5 }}
           className="text-center space-y-6 md:space-y-10"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight px-2">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight px-2">
             Ready to Stop Wondering
             <br />
             And Start Growing?

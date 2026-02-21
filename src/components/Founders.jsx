@@ -36,7 +36,7 @@ const Founders = () => {
             <span className="text-[10px] sm:text-xs text-white/60 uppercase tracking-[0.25em]">The Team</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
             Two Founders.
             <br />
             <span className="text-liquid-gold">One Mission.</span>
@@ -67,7 +67,7 @@ const Founders = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-pure-black/60 via-transparent to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-light text-white">
+                  <h3 className="text-3xl md:text-3xl lg:text-4xl font-serif font-light text-white">
                     {founder.name}
                   </h3>
                 </div>

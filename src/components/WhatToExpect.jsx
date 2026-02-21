@@ -96,7 +96,7 @@ const WhatToExpect = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
             What Working With Us
             <br />
             <span className="text-liquid-gold">Actually Looks Like</span>
@@ -125,7 +125,7 @@ const WhatToExpect = () => {
                   {item.icon}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-serif font-light text-white mb-3 md:mb-4 leading-tight group-hover:text-liquid-gold transition-colors duration-300">
+                <h3 className="text-2xl md:text-2xl font-serif font-light text-white mb-3 md:mb-4 leading-tight group-hover:text-liquid-gold transition-colors duration-300">
                   {item.title}
                 </h3>
 

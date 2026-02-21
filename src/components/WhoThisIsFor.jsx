@@ -87,7 +87,7 @@ const WhoThisIsFor = () => {
             <span className="text-[10px] sm:text-xs text-white/60 uppercase tracking-[0.25em]">Sound Familiar?</span>
           </motion.div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white leading-tight mb-4 md:mb-6 px-2">
             You're Great at Your Business.
             <br />
             <span className="text-liquid-gold">We Handle the Marketing.</span>
@@ -114,7 +114,7 @@ const WhoThisIsFor = () => {
               <div className="relative z-10">
                 <div className="w-12 h-12 md:w-14 lg:w-16 md:h-14 lg:h-16 mb-4 md:mb-6 text-white opacity-80">{point.icon}</div>
 
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-serif font-light text-white mb-2 md:mb-4 leading-tight">
+                <h3 className="text-2xl md:text-2xl lg:text-3xl font-serif font-light text-white mb-2 md:mb-4 leading-tight">
                   {point.pain}
                 </h3>
 

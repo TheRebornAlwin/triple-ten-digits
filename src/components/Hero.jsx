@@ -142,7 +142,35 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-7xl relative z-10">
-        <div className="text-center space-y-6 sm:space-y-8 md:space-y-12 pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24">
+        {/* Mobile-only: Rhi Aesthetics case study card */}
+        {isMobile && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="pt-24 pb-4 px-1"
+          >
+            <div className="relative glass-card rounded-2xl p-5 border border-liquid-gold/20">
+              <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-liquid-gold/15 border border-liquid-gold/30">
+                <span className="text-[9px] text-liquid-gold uppercase tracking-widest font-mono font-medium">Most Recent Case Study</span>
+              </div>
+              <h3 className="text-lg font-serif font-bold mb-1 text-white">Rhi Aesthetics</h3>
+              <p className="text-liquid-gold text-[10px] uppercase tracking-widest font-mono mb-3">Medical Aesthetics</p>
+              <ul className="space-y-1.5">
+                {['$47k revenue in 90 days', '3.2x average transaction value', 'Waitlist for premium services'].map((result, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm">
+                    <svg className="w-4 h-4 text-liquid-gold flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
+                      <path d="M6 10L9 13L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-white/80">{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
+        <div className={`text-center space-y-6 sm:space-y-8 md:space-y-12 ${isMobile ? 'pt-4' : 'pt-24 sm:pt-32 md:pt-40'} pb-12 sm:pb-16 md:pb-24`}>
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0 }}
