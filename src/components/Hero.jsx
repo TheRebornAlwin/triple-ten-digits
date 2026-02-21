@@ -5,6 +5,18 @@ import ASMRBackground from './ASMRBackground';
 const Hero = () => {
   const heroRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth < 768
+  );
+
+  // Detect mobile for background swap
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mql.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
 
   // Animated counters
   const [revenue, setRevenue] = useState(0);
@@ -64,17 +76,43 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center bg-pure-black overflow-hidden">
-      {/* ASMR interactive particle background */}
+      {/* Background — ASMR particles on desktop, luxury gradient on mobile */}
       <div className="absolute inset-0">
-        <ASMRBackground />
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-liquid-gold/10 rounded-full blur-3xl pointer-events-none"
-          style={{ x: mousePosition.x, y: mousePosition.y }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-liquid-gold/5 rounded-full blur-3xl pointer-events-none"
-          style={{ x: mousePosition.x * -0.5, y: mousePosition.y * -0.5 }}
-        />
+        {isMobile ? (
+          <>
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 175, 55, 0.13) 0%, transparent 50%),
+                  radial-gradient(ellipse 60% 50% at 85% 100%, rgba(212, 175, 55, 0.07) 0%, transparent 50%),
+                  radial-gradient(ellipse 40% 40% at 10% 60%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+                  linear-gradient(180deg, #0a0a0a 0%, #000000 40%, #050505 100%)
+                `,
+              }}
+            />
+            <div
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: `
+                  radial-gradient(ellipse 50% 30% at 50% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 70%)
+                `,
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <ASMRBackground />
+            <motion.div
+              className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-liquid-gold/10 rounded-full blur-3xl pointer-events-none"
+              style={{ x: mousePosition.x, y: mousePosition.y }}
+            />
+            <motion.div
+              className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-liquid-gold/5 rounded-full blur-3xl pointer-events-none"
+              style={{ x: mousePosition.x * -0.5, y: mousePosition.y * -0.5 }}
+            />
+          </>
+        )}
       </div>
 
       <div className="container mx-auto px-4 sm:px-8 lg:px-20 max-w-7xl relative z-10">
@@ -86,10 +124,10 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative mb-4"
           >
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
+            <span className="block text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-display font-light text-white leading-[0.95] tracking-tight">
               We Don't Just
             </span>
-            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-display font-light leading-[0.95] tracking-tight mt-2 sm:mt-4">
+            <span className="block text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-display font-light leading-[0.95] tracking-tight mt-2 sm:mt-4">
               <span className="text-white">Run </span>
               <span className="relative inline-block">
                 <span className="text-liquid-gold">Ads.</span>
@@ -152,7 +190,7 @@ const Hero = () => {
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-display text-liquid-gold mb-1 font-light">
+                  <div className="text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-display text-liquid-gold mb-1 font-light">
                     {metric.value}
                   </div>
                   <div className="text-white/40 text-[8px] sm:text-[10px] md:text-xs uppercase tracking-wider">
