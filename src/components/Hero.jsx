@@ -80,22 +80,48 @@ const Hero = () => {
       <div className="absolute inset-0">
         {isMobile ? (
           <>
+            {/* Base gradient with warm black tones */}
             <div
               className="absolute inset-0"
               style={{
                 background: `
-                  radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 175, 55, 0.13) 0%, transparent 50%),
-                  radial-gradient(ellipse 60% 50% at 85% 100%, rgba(212, 175, 55, 0.07) 0%, transparent 50%),
-                  radial-gradient(ellipse 40% 40% at 10% 60%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
-                  linear-gradient(180deg, #0a0a0a 0%, #000000 40%, #050505 100%)
+                  linear-gradient(165deg, #0d0a04 0%, #000000 35%, #080604 65%, #0a0702 100%)
                 `,
               }}
             />
+            {/* Top gold wash */}
             <div
-              className="absolute inset-0 opacity-30"
+              className="absolute inset-0"
               style={{
                 background: `
-                  radial-gradient(ellipse 50% 30% at 50% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 70%)
+                  radial-gradient(ellipse 100% 55% at 50% -5%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0.08) 40%, transparent 70%)
+                `,
+              }}
+            />
+            {/* Bottom-right warm glow */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(ellipse 70% 50% at 90% 95%, rgba(212, 175, 55, 0.18) 0%, rgba(180, 140, 30, 0.05) 40%, transparent 70%)
+                `,
+              }}
+            />
+            {/* Left accent */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(ellipse 45% 40% at 5% 55%, rgba(212, 175, 55, 0.10) 0%, transparent 60%)
+                `,
+              }}
+            />
+            {/* Center soft ambient glow */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `
+                  radial-gradient(ellipse 60% 35% at 50% 45%, rgba(212, 175, 55, 0.09) 0%, transparent 65%)
                 `,
               }}
             />
