@@ -13,7 +13,7 @@ const services = [
     title: 'Paid Ads That Print Money',
     objection: 'Not another agency promising ROI...',
     description: "Meta, Google, TikTok. We obsessively optimize every campaign for revenue, not vanity metrics. Your bottom line is our only KPI.",
-    metrics: ['387% ROAS', '$13.8k in 30 days'],
+    metrics: ['387% ROAS', '£11k in 30 days'],
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
         {/* Money printing/growth chart icon */}
@@ -90,7 +90,7 @@ const services = [
     title: 'Strategy That Actually Works',
     objection: 'Do I really need a strategist?',
     description: "Sometimes you need a complete rethink. We tell you what you NEED to hear, not what you want to hear. No fluff, just growth.",
-    metrics: ['$89k new contracts', '4 months booked'],
+    metrics: ['£72k new contracts', '4 months booked'],
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none">
         {/* Chess knight / strategic thinking icon */}

@@ -8,12 +8,12 @@ const Founders = () => {
     {
       name: 'Alwin',
       image: 'https://ffjq345kpi.ufs.sh/f/wcvmaciXvbR7hX8LK1QSvR1n2zyUDY3OqoWsp6iNlkcHJEba',
-      bio: "Spent years running ads for brands that needed actual results, not pretty dashboards. I'll tell you what's broken with your marketing even if you don't want to hear it. That's how we actually help.",
+      bio: "I spent years running ads and managing project funnels for brands that needed actual results, so I'll tell you what's broken with your marketing and fix it all.",
     },
     {
       name: 'Connor',
       image: 'https://ffjq345kpi.ufs.sh/f/wcvmaciXvbR7Qe5cQbaRWwoO7k9p05F3YfmtNEgqrKAlZXn6',
-      bio: "Started my first business at 19. Made expensive mistakes, learned from them, came back smarter. Now I help other businesses skip the part where they throw money away. I'm obsessed with stuff that actually converts.",
+      bio: "Started my first business at 16. Of course made expensive mistakes, learned from them, came back smarter. Now I help other businesses skip the part where they throw money away, and I'm obsessed with stuff that actually converts.",
     },
   ];
 

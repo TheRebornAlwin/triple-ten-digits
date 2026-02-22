@@ -24,7 +24,7 @@ const Hero = () => {
   const [clients, setClients] = useState(0);
 
   useEffect(() => {
-    const revenueTarget = 2.3;
+    const revenueTarget = 1.9;
     const roasTarget = 387;
     const clientsTarget = 47;
 
@@ -69,7 +69,7 @@ const Hero = () => {
   }, []);
 
   const metrics = [
-    { value: `$${revenue.toFixed(1)}M+`, label: 'Revenue Generated' },
+    { value: `£${revenue.toFixed(1)}M+`, label: 'Revenue Generated' },
     { value: `${roas}%`, label: 'Average ROAS' },
     { value: `${clients}`, label: 'Active Clients' },
   ];
@@ -157,7 +157,7 @@ const Hero = () => {
               <h3 className="text-lg font-serif font-bold mb-1 text-white">Rhi Aesthetics</h3>
               <p className="text-liquid-gold text-[10px] uppercase tracking-widest font-mono mb-3">Medical Aesthetics</p>
               <ul className="space-y-1.5">
-                {['$47k revenue in 90 days', '3.2x average transaction value', 'Waitlist for premium services'].map((result, i) => (
+                {['£38k revenue in 90 days', '3.2x transaction value', 'Premium service waitlist'].map((result, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
                     <svg className="w-4 h-4 text-liquid-gold flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
                       <path d="M6 10L9 13L14 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

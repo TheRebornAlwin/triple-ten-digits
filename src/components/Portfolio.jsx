@@ -8,42 +8,42 @@ const Portfolio = () => {
     {
       client: 'Fake Plastic Chairs',
       industry: 'E-commerce Furniture',
-      results: ['$13,800 revenue in first month', '387% ROAS', 'Top seller in category'],
+      results: ['£11k revenue in month 1', '387% ROAS', 'Top seller in category'],
     },
     {
       client: 'Rejuvenating Touch',
       industry: 'Wellness & Spa',
-      results: ['6 bookings in first month', '124% increase in consultations', 'Fully booked in 8 weeks'],
+      results: ['6 bookings in first month', '124% more consultations', 'Fully booked in 8 weeks'],
     },
     {
       client: 'Rhi Aesthetics',
       industry: 'Medical Aesthetics',
-      results: ['$47k revenue in 90 days', '3.2x average transaction value', 'Waitlist for premium services'],
+      results: ['£38k revenue in 90 days', '3.2x transaction value', 'Premium service waitlist'],
     },
     {
       client: 'C&M Evans Concrete',
       industry: 'Construction Services',
-      results: ['$89k in new contracts', 'Ranked #1 for target keywords', 'Pipeline booked 4 months ahead'],
+      results: ['£72k in new contracts', '#1 for target keywords', '4-month booked pipeline'],
     },
     {
       client: 'Infinity Smart Homes',
       industry: 'Smart Home Automation',
-      results: ['12x social engagement', '340% increase in inquiries', 'Became local market leader'],
+      results: ['8x social engagement', '210% more inquiries', 'Local market leader'],
     },
     {
       client: 'Electromain',
       industry: 'Luxury Electrical',
-      results: ['$62k in new projects', '4.1x ROAS on Meta', 'Repositioned as premium brand'],
+      results: ['£51k in new projects', '4.1x ROAS on Meta', 'Repositioned as premium'],
     },
     {
       client: 'Delston Roofing',
       industry: 'Roofing Services',
-      results: ['47 qualified leads per month', '$120k+ pipeline value', '2.8x ROAS consistently'],
+      results: ['34 qualified leads/month', '£85k+ pipeline value', '2.8x ROAS consistently'],
     },
     {
       client: 'Mack D Studios',
       industry: 'Barbering Education',
-      results: ['Sold out next 3 cohorts', '67% decrease in cost per enrollment', '4.2x return on ad spend'],
+      results: ['Sold out 2 cohorts', '52% lower cost per enrolment', '4.2x ROAS'],
     },
   ];
 

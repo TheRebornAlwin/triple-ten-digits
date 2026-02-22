@@ -28,10 +28,10 @@ function HomePage() {
         <Hero />
         <TrustBar />
         <WhoThisIsFor />
+        <Founders />
         <WhatWeDo />
         <HowWereDifferent />
         <Portfolio />
-        <Founders />
         <Testimonials />
         <WhatToExpect />
         <TimeRunningOut />
