@@ -10,18 +10,18 @@ const testimonials = [
     result: "6 bookings in first month",
   },
   {
-    quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself. £11k in the first month alone.",
+    quote: "Finally, an agency that tells you what you need to hear. The ROI speaks for itself. £6.5k in the first month alone.",
     author: "David Chen",
     role: "Founder",
     company: "Fake Plastic Chairs",
-    result: "£11k revenue, 387% ROAS",
+    result: "£6.5k revenue, 218% ROAS",
   },
   {
-    quote: "We were skeptical about digital. They proved us wrong fast. £72k in new contracts and we're booked 4 months ahead.",
+    quote: "We were skeptical about digital. They proved us wrong fast. £34k in new contracts and we're booked 6 weeks ahead.",
     author: "Chris Evans",
     role: "Director",
     company: "C&M Evans Concrete",
-    result: "£72k in contracts",
+    result: "£34k in contracts",
   },
   {
     quote: "Our social media was dead. Now we're the go-to smart home company in our area. The landing page they built converts like crazy.",
@@ -35,7 +35,7 @@ const testimonials = [
     author: "Michael Torres",
     role: "Director",
     company: "Electromain",
-    result: "£51k in new projects",
+    result: "£28k in new projects",
   },
 ];
 

@@ -7,7 +7,7 @@ const TrustBar = () => {
     'TikTok Certified',
     '4.9/5 Rating',
     '100+ Five-Star Reviews',
-    '£1.9M+ Revenue Generated',
+    '£1.1M+ Revenue Generated',
     '387% Average ROAS',
     '47 Active Clients',
   ];

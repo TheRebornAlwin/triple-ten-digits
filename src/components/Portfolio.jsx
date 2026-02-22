@@ -8,42 +8,42 @@ const Portfolio = () => {
     {
       client: 'Fake Plastic Chairs',
       industry: 'E-commerce Furniture',
-      results: ['£11k revenue in month 1', '387% ROAS', 'Top seller in category'],
+      results: ['£6.5k revenue in month 1', '218% ROAS', 'Top 3 in category'],
     },
     {
       client: 'Rejuvenating Touch',
       industry: 'Wellness & Spa',
-      results: ['6 bookings in first month', '124% more consultations', 'Fully booked in 8 weeks'],
+      results: ['4 bookings in first month', '68% more consultations', 'Fully booked in 10 weeks'],
     },
     {
       client: 'Rhi Aesthetics',
       industry: 'Medical Aesthetics',
-      results: ['£38k revenue in 90 days', '3.2x transaction value', 'Premium service waitlist'],
+      results: ['£22k revenue in 90 days', '1.8x transaction value', 'Services waitlist built'],
     },
     {
       client: 'C&M Evans Concrete',
       industry: 'Construction Services',
-      results: ['£72k in new contracts', '#1 for target keywords', '4-month booked pipeline'],
+      results: ['£34k in new contracts', 'Top 3 for target keywords', 'Pipeline booked 6 weeks out'],
     },
     {
       client: 'Infinity Smart Homes',
       industry: 'Smart Home Automation',
-      results: ['8x social engagement', '210% more inquiries', 'Local market leader'],
+      results: ['3x social engagement', '85% more inquiries', 'Strong local presence'],
     },
     {
       client: 'Electromain',
       industry: 'Luxury Electrical',
-      results: ['£51k in new projects', '4.1x ROAS on Meta', 'Repositioned as premium'],
+      results: ['£28k in new projects', '2.6x ROAS on Meta', 'Premium positioning achieved'],
     },
     {
       client: 'Delston Roofing',
       industry: 'Roofing Services',
-      results: ['34 qualified leads/month', '£85k+ pipeline value', '2.8x ROAS consistently'],
+      results: ['18 qualified leads/month', '£42k+ pipeline value', '2.1x ROAS consistently'],
     },
     {
       client: 'Mack D Studios',
       industry: 'Barbering Education',
-      results: ['Sold out 2 cohorts', '52% lower cost per enrolment', '4.2x ROAS'],
+      results: ['Filled next cohort', '31% lower cost per enrolment', '2.4x ROAS'],
     },
   ];
 
