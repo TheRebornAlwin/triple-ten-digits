@@ -9,7 +9,7 @@ const TrustBar = () => {
     '100+ Five-Star Reviews',
     '£1.1M+ Revenue Generated',
     '387% Average ROAS',
-    '47 Active Clients',
+    '23 Active Clients',
   ];
 
   // Double the items for seamless loop

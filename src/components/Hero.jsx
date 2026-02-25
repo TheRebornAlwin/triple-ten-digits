@@ -26,7 +26,7 @@ const Hero = () => {
   useEffect(() => {
     const revenueTarget = 1.1;
     const roasTarget = 387;
-    const clientsTarget = 47;
+    const clientsTarget = 23;
 
     const revenueInterval = setInterval(() => {
       setRevenue((prev) => {
